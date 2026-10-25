@@ -1,0 +1,1436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6fb">
+  <meta name="description" content="Before the Stethoscope is a warm, rigorous guide to the science that helps future clinicians understand the human body before they meet the bedside.">
+  <title>Before the Stethoscope — The science before the clinic</title>
+  <link rel="icon" type="image/png" href="assets/before-the-stethoscope-mark.png">
+  <style>
+    :root {
+      --ink: #302b3a;
+      --muted: #696274;
+      --violet: #6648aa;
+      --violet-dark: #4f338d;
+      --lavender: #ede5ff;
+      --lilac-wash: #f8f5ff;
+      --coral: #df826e;
+      --cream: #fffdf8;
+      --paper: #ffffff;
+      --line: #e9e4ef;
+      --mint: #e8f2ed;
+      --gold: #f3e3bd;
+      --shadow: 0 22px 60px rgba(50, 38, 75, .09);
+      --radius: 24px;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .announcement {
+      padding: 9px 20px;
+      background: var(--ink);
+      color: #f8f5ff;
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .035em;
+    }
+
+    .announcement b {
+      color: #e8c89b;
+      font-weight: 650;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(255,253,248,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(233,228,239,.85);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 44px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      min-width: 230px;
+    }
+
+    .brand img {
+      width: 49px;
+      height: 49px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      display: grid;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      color: var(--muted);
+      font: 600 .62rem var(--sans);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5d5667;
+      font-size: .88rem;
+      font-weight: 580;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--violet);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--violet);
+      color: white;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 680;
+      box-shadow: 0 8px 18px rgba(102,72,170,.16);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      background: var(--violet-dark);
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 74px 0 82px;
+      background:
+        radial-gradient(ellipse at 86% 18%, rgba(237,229,255,.95), transparent 34%),
+        radial-gradient(ellipse at 9% 96%, rgba(243,227,189,.27), transparent 32%),
+        #fbf9fd;
+    }
+
+    .hero:before,
+    .hero:after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(102,72,170,.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero:before {
+      width: 520px;
+      height: 520px;
+      top: -330px;
+      right: 2%;
+    }
+
+    .hero:after {
+      width: 760px;
+      height: 760px;
+      top: -450px;
+      right: -8%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 44px));
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--violet);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .72rem;
+      font-weight: 750;
+    }
+
+    .eyebrow:before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--coral);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 660px;
+      margin: 17px 0 20px;
+      font: 500 clamp(3rem, 6.4vw, 5.45rem)/.99 var(--serif);
+      letter-spacing: -.055em;
+    }
+
+    h1 em {
+      color: var(--violet);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      color: #625b6b;
+      font-size: 1.13rem;
+      line-height: 1.75;
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      margin-top: 28px;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid #d8d0e4;
+      box-shadow: none;
+    }
+
+    .button.secondary:hover {
+      background: white;
+      color: var(--violet);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 25px;
+      color: #777080;
+      font-size: .82rem;
+    }
+
+    .hero-note span {
+      color: var(--coral);
+      font-size: 1.1rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 425px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      width: min(420px, 90%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(102,72,170,.15);
+      border-radius: 50%;
+    }
+
+    .orbit:before,
+    .orbit:after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(102,72,170,.11);
+      border-radius: 50%;
+      inset: 29px;
+    }
+
+    .orbit:after { inset: 66px; }
+
+    .book-card {
+      position: relative;
+      z-index: 1;
+      width: min(350px, 85%);
+      padding: 31px 31px 27px;
+      background: var(--paper);
+      border: 1px solid rgba(226,219,238,.85);
+      border-radius: 22px 22px 22px 7px;
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .book-card:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 24px;
+      bottom: 24px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: var(--coral);
+    }
+
+    .card-label {
+      color: var(--violet);
+      font-size: .67rem;
+      font-weight: 750;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .book-card h2 {
+      margin: 12px 0 10px;
+      font: 500 2rem/1.08 var(--serif);
+      letter-spacing: -.03em;
+    }
+
+    .book-card p {
+      margin-bottom: 19px;
+      color: #736c7c;
+      font-size: .92rem;
+    }
+
+    .scribble {
+      padding: 15px 15px 13px;
+      background: var(--lilac-wash);
+      border-radius: 11px;
+      color: #51485f;
+      font: italic 1.04rem/1.45 var(--serif);
+    }
+
+    .scribble small {
+      display: block;
+      margin-top: 11px;
+      color: #8b8296;
+      font: 650 .65rem var(--sans);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .float-tag {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid #ebe6f1;
+      border-radius: 999px;
+      color: #5b5368;
+      font-size: .77rem;
+      font-weight: 650;
+      box-shadow: 0 10px 28px rgba(50,38,75,.08);
+    }
+
+    .float-tag i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    .tag-one { top: 35px; right: 6px; }
+    .tag-two { bottom: 43px; left: 0; }
+    .tag-three { bottom: 4px; right: 25px; }
+
+    .section { padding: 94px 0; }
+
+    .section-shell {
+      width: min(1120px, calc(100% - 44px));
+      margin: auto;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 43px;
+      text-align: center;
+    }
+
+    .section-head .eyebrow { justify-content: center; }
+
+    .section-head h2 {
+      margin: 13px 0 14px;
+      font: 500 clamp(2.2rem, 4.1vw, 3.55rem)/1.08 var(--serif);
+      letter-spacing: -.045em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .story-section { background: white; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      align-items: center;
+      gap: 62px;
+    }
+
+    .story-visual {
+      position: relative;
+      min-height: 355px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg,#f5efff,#fffaf0);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .story-visual:before {
+      content: '';
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(102,72,170,.17);
+      border-radius: 50%;
+    }
+
+    .story-visual:after {
+      content: '✦';
+      position: absolute;
+      top: 32px;
+      right: 44px;
+      color: var(--coral);
+      font-size: 1.3rem;
+    }
+
+    .notebook {
+      position: relative;
+      width: 225px;
+      padding: 24px 22px;
+      background: #fffefa;
+      border-radius: 5px 17px 17px 5px;
+      box-shadow: 0 18px 40px rgba(55,39,82,.13);
+      transform: rotate(-5deg);
+    }
+
+    .notebook:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 13px;
+      background: repeating-linear-gradient(to bottom,#d7c8f3 0 5px,transparent 5px 20px);
+      border-radius: 5px 0 0 5px;
+    }
+
+    .notebook .date {
+      padding-left: 12px;
+      color: #8a8195;
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .notebook blockquote {
+      margin: 18px 0 12px 12px;
+      color: var(--violet-dark);
+      font: italic 1.32rem/1.32 var(--serif);
+    }
+
+    .notebook .underline {
+      width: 76%;
+      height: 2px;
+      margin-left: 12px;
+      background: #e9a48f;
+      transform: rotate(-2deg);
+    }
+
+    .notebook .margin-note {
+      margin: 18px 0 0 12px;
+      color: #807789;
+      font-size: .74rem;
+    }
+
+    .story-copy .eyebrow { margin-bottom: 13px; }
+
+    .story-copy h2 {
+      margin: 0 0 17px;
+      font: 500 clamp(2.2rem, 4vw, 3.2rem)/1.08 var(--serif);
+      letter-spacing: -.045em;
+    }
+
+    .story-copy p {
+      color: #6b6473;
+      line-height: 1.8;
+    }
+
+    .story-copy p.lead {
+      color: #423b4e;
+      font-size: 1.1rem;
+    }
+
+    .pullquote {
+      margin-top: 24px;
+      padding: 16px 0 16px 19px;
+      border-left: 2px solid var(--coral);
+      color: var(--violet-dark);
+      font: italic 1.12rem/1.5 var(--serif);
+    }
+
+    .pathway-section { background: #fbf9fd; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin: -10px 0 30px;
+    }
+
+    .filter {
+      padding: 9px 14px;
+      border: 1px solid #e1dbe9;
+      border-radius: 999px;
+      background: white;
+      color: #665f70;
+      font-size: .8rem;
+      font-weight: 650;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .filter:hover,
+    .filter[aria-pressed="true"] {
+      border-color: var(--violet);
+      background: var(--violet);
+      color: white;
+    }
+
+    .pathways {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+    }
+
+    .path-card {
+      min-height: 225px;
+      display: flex;
+      flex-direction: column;
+      padding: 23px 23px 20px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .path-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(50,38,75,.08);
+    }
+
+    .path-card[hidden] { display: none; }
+
+    .path-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .path-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--tint,#f2edfb);
+      color: var(--accent,var(--violet));
+      font-size: 1.25rem;
+    }
+
+    .status {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #f6f3f8;
+      color: #777080;
+      font-size: .62rem;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .status.current {
+      background: #eaf3ed;
+      color: #42634f;
+    }
+
+    .path-card h3 {
+      margin: 17px 0 7px;
+      font: 600 1.22rem var(--serif);
+      letter-spacing: -.015em;
+    }
+
+    .path-card p {
+      margin: 0;
+      color: #706a78;
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .path-card .path-foot {
+      margin-top: auto;
+      padding-top: 16px;
+      color: var(--accent,var(--violet));
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .roadmap-note {
+      margin: 23px auto 0;
+      max-width: 740px;
+      text-align: center;
+      color: #807989;
+      font-size: .82rem;
+    }
+
+    .learning-section {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .learning-section .section-head p { color: #c6bfce; }
+    .learning-section .section-head .eyebrow { color: #d9c5ff; }
+
+    .learning-steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 13px;
+      counter-reset: steps;
+    }
+
+    .learning-step {
+      position: relative;
+      min-height: 226px;
+      padding: 24px 21px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+    }
+
+    .learning-step:before {
+      counter-increment: steps;
+      content: '0' counter(steps);
+      color: #e6a18f;
+      font: italic 1.5rem var(--serif);
+    }
+
+    .learning-step h3 {
+      margin: 23px 0 9px;
+      color: white;
+      font: 500 1.2rem var(--serif);
+    }
+
+    .learning-step p {
+      margin: 0;
+      color: #c4bdcc;
+      font-size: .84rem;
+      line-height: 1.65;
+    }
+
+    .learning-note {
+      margin: 23px auto 0;
+      max-width: 760px;
+      color: #d9d2e0;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .demo-section { background: white; }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .demo-intro { padding: 25px 10px 25px 0; }
+
+    .demo-intro h2 {
+      margin: 13px 0 15px;
+      font: 500 clamp(2.1rem, 3.6vw, 3.05rem)/1.1 var(--serif);
+      letter-spacing: -.04em;
+    }
+
+    .demo-intro p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .mechanism {
+      padding: 27px;
+      border: 1px solid #e7dfef;
+      border-radius: 22px;
+      background: #fbf9ff;
+    }
+
+    .mechanism-head {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 20px;
+    }
+
+    .pulse-icon {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: #fbe9e4;
+      color: #bc5c4d;
+      font-size: 1.38rem;
+    }
+
+    .mechanism-head small {
+      display: block;
+      color: var(--violet);
+      font-size: .65rem;
+      font-weight: 750;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .mechanism-head strong {
+      display: block;
+      margin-top: 3px;
+      font: 600 1.12rem var(--serif);
+    }
+
+    .steps-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mechanism-step {
+      display: grid;
+      grid-template-columns: 31px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      background: white;
+      border: 1px solid #eee9f3;
+      border-radius: 13px;
+    }
+
+    .mechanism-step .num {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lavender);
+      color: var(--violet);
+      font-size: .75rem;
+      font-weight: 750;
+    }
+
+    .mechanism-step p {
+      margin: 1px 0 0;
+      color: #615a6c;
+      font-size: .83rem;
+      line-height: 1.55;
+    }
+
+    .mechanism-step strong { color: var(--ink); }
+
+    .check-question {
+      margin-top: 17px;
+      padding: 16px;
+      border-radius: 13px;
+      background: #f5eee2;
+    }
+
+    .check-question b {
+      display: block;
+      margin-bottom: 5px;
+      font: 600 1rem var(--serif);
+    }
+
+    .check-question p {
+      margin: 0 0 12px;
+      color: #665e69;
+      font-size: .82rem;
+    }
+
+    .reveal-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--violet);
+      font-size: .79rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .answer {
+      margin: 11px 0 0;
+      padding-top: 10px;
+      border-top: 1px solid #e3d8c6;
+      color: #514a57;
+      font-size: .83rem;
+    }
+
+    .answer[hidden] { display: none; }
+
+    .closing {
+      padding: 75px 0;
+      background: linear-gradient(120deg,#eee7fa,#fcf5ec);
+    }
+
+    .closing-inner {
+      width: min(1000px, calc(100% - 44px));
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .closing h2 {
+      max-width: 650px;
+      margin: 10px 0 9px;
+      font: 500 clamp(2.1rem, 4vw, 3.3rem)/1.08 var(--serif);
+      letter-spacing: -.04em;
+    }
+
+    .closing p {
+      margin: 0;
+      color: #6c6474;
+    }
+
+    footer {
+      padding: 34px 0;
+      background: #26222e;
+      color: #f2edf7;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 44px));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-brand img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+
+    .footer-brand strong {
+      display: block;
+      font: 600 1rem var(--serif);
+    }
+
+    .footer-brand small,
+    .footer-meta {
+      color: #bcb4c6;
+      font-size: .73rem;
+    }
+
+    .footer-meta {
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid #d77d68;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+        padding: 16px 24px 22px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+      }
+
+      .nav-links.open { display: flex; }
+      .menu-button { display: block; }
+      .nav-cta { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 10px; }
+      .hero-copy { max-width: 650px; }
+      .hero-art { min-height: 380px; }
+      .story-grid,
+      .demo-grid { grid-template-columns: 1fr; gap: 33px; }
+      .story-visual { min-height: 310px; }
+      .pathways { grid-template-columns: repeat(2,1fr); }
+      .learning-steps { grid-template-columns: repeat(2,1fr); }
+      .closing-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .announcement { font-size: .68rem; }
+      .nav {
+        width: min(100% - 30px, 1180px);
+        min-height: 68px;
+      }
+      .brand { min-width: 0; gap: 7px; }
+      .brand img { width: 40px; height: 40px; }
+      .brand-name { font-size: .93rem; }
+      .brand-name small { font-size: .54rem; }
+      .nav-links { top: 67px; }
+      .hero { padding: 54px 0 53px; }
+      .hero-grid,
+      .section-shell { width: min(100% - 32px, 1120px); }
+      h1 { font-size: clamp(2.8rem, 14vw, 4.1rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-art { min-height: 360px; }
+      .book-card { padding: 27px 24px 22px; }
+      .tag-one { right: -5px; top: 13px; }
+      .tag-two { left: -4px; bottom: 33px; }
+      .tag-three { right: 0; bottom: 0; }
+      .section { padding: 69px 0; }
+      .pathways { grid-template-columns: 1fr; }
+      .path-card { min-height: auto; }
+      .learning-steps { grid-template-columns: 1fr; }
+      .learning-step { min-height: 0; }
+      .learning-step h3 { margin-top: 14px; }
+      .mechanism { padding: 18px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-meta { text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *:before,
+      *:after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    <b>A work in progress, made with care</b> · The physiology book is taking shape; the wider science map is a beginning.
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Before the Stethoscope home">
+        <img src="assets/before-the-stethoscope-mark.png" alt="">
+        <span class="brand-name">
+          Before the Stethoscope
+          <small>Medicine · students · understanding</small>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
+        Menu
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#story">The story</a>
+        <a href="#subjects">Explore the science</a>
+        <a href="#approach">How it works</a>
+        <a href="#try-it">Try a concept</a>
+      </div>
+
+      <a class="nav-cta" href="#subjects">
+        Find your starting point <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">A learning companion for future clinicians</span>
+          <h1 id="hero-title">
+            Before the stethoscope, there is a <em>question.</em>
+          </h1>
+          <p class="hero-copy">
+            How does a body keep going? What changes when something goes wrong?
+            And how do we learn enough to meet those questions with care?
+            <strong>Start with curiosity. Build understanding. Let the facts find somewhere to belong.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#subjects">
+              Explore the science <span aria-hidden="true">↓</span>
+            </a>
+            <a class="button secondary" href="#story">
+              Meet Violet <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span aria-hidden="true">✳</span>
+            For the first years, the confused days, and the “wait, that actually makes sense” moments.
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="A page from Violet's notebook">
+          <div class="orbit"></div>
+          <div class="float-tag tag-one"><i></i> mechanisms, made clearer</div>
+          <div class="float-tag tag-two"><i></i> science with a human centre</div>
+          <div class="float-tag tag-three"><i></i> clinical links that make sense</div>
+
+          <article class="book-card">
+            <span class="card-label">Violet's notebook · week one</span>
+            <h2>So, what is physiology?</h2>
+            <p>A way of asking how the body works, how it adapts, and what those changes mean.</p>
+            <div class="scribble">
+              “Maybe my body had been teaching me all along. I just wasn't paying attention.”
+              <small>one thought, before the lecture notes</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story" aria-labelledby="story-title">
+      <div class="section-shell story-grid">
+        <div class="story-visual" aria-hidden="true">
+          <div class="notebook">
+            <div class="date">A note to remember</div>
+            <blockquote>One day I want to understand.</blockquote>
+            <div class="underline"></div>
+            <div class="margin-note">Not every answer. Just enough to begin.</div>
+          </div>
+        </div>
+
+        <div class="story-copy">
+          <span class="eyebrow">A story before the syllabus</span>
+          <h2 id="story-title">Violet starts with a moment she cannot explain.</h2>
+          <p class="lead">
+            When Violet is nine, her grandmother suddenly becomes unwell.
+            Adults move quickly. New words fill the room. Violet is left with one
+            question that stays with her: <em>why did this happen?</em>
+          </p>
+          <p>
+            Years later, as she steps into medical school, that question follows
+            her into lectures, late-night notes and the first strange wonder of
+            seeing the body as more than a list of terms. Her story gives the
+            science somewhere human to begin.
+          </p>
+          <div class="pullquote">
+            You do not need to know everything on day one. You need a place to start,
+            room to ask, and time to connect the pieces.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pathway-section" id="subjects" aria-labelledby="subjects-title">
+      <div class="section-shell">
+        <div class="section-head">
+          <span class="eyebrow">The bigger map</span>
+          <h2 id="subjects-title">Medicine is connected science.</h2>
+          <p>
+            One idea often opens a door into another. The series begins with
+            physiology and can grow into the subjects that help explain the whole
+            picture—from molecules and cells to people, patients and care.
+          </p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter science topics">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All pathways</button>
+          <button class="filter" type="button" data-filter="body" aria-pressed="false">The body</button>
+          <button class="filter" type="button" data-filter="molecules" aria-pressed="false">Cells & molecules</button>
+          <button class="filter" type="button" data-filter="defence" aria-pressed="false">Defence & disease</button>
+          <button class="filter" type="button" data-filter="care" aria-pressed="false">Clinical thinking</button>
+        </div>
+
+        <div class="pathways" id="pathways">
+          <article class="path-card" data-category="body" style="--accent:#6648aa;--tint:#f0eaff">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">♡</span>
+              <span class="status current">Book in progress</span>
+            </div>
+            <h3>Physiology</h3>
+            <p>How the body works, adapts and keeps its internal conditions within a living range.</p>
+            <div class="path-foot">THE CURRENT STARTING POINT</div>
+          </article>
+
+          <article class="path-card" data-category="molecules" style="--accent:#b46a35;--tint:#fbefe0">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">◉</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Biochemistry</h3>
+            <p>The molecules, reactions and energy exchanges that make life possible.</p>
+            <div class="path-foot">FROM CHEMISTRY TO LIVING SYSTEMS</div>
+          </article>
+
+          <article class="path-card" data-category="body" style="--accent:#427a70;--tint:#e9f4f0">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">⌁</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Anatomy & histology</h3>
+            <p>How structures are organised—from tissues under a microscope to the whole body.</p>
+            <div class="path-foot">FORM, SCALE & FUNCTION</div>
+          </article>
+
+          <article class="path-card" data-category="molecules" style="--accent:#6771a7;--tint:#edf0fa">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">⌘</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Cell biology & genetics</h3>
+            <p>Cells as active, communicating systems—and how biological instructions are used.</p>
+            <div class="path-foot">THE CELL’S INNER WORKINGS</div>
+          </article>
+
+          <article class="path-card" data-category="defence" style="--accent:#bc6558;--tint:#fff0ec">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">✳</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Immunology</h3>
+            <p>How the body recognises danger, coordinates defence and learns from encounters.</p>
+            <div class="path-foot">DEFENCE, MEMORY & BALANCE</div>
+          </article>
+
+          <article class="path-card" data-category="defence" style="--accent:#4e8b67;--tint:#ebf5ec">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">· ·</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Microbiology</h3>
+            <p>The microbial world: its diversity, its relationships with us and its role in disease.</p>
+            <div class="path-foot">SMALL ORGANISMS, BIG STORIES</div>
+          </article>
+
+          <article class="path-card" data-category="defence" style="--accent:#94714a;--tint:#f5f0e7">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">↗</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Pathology</h3>
+            <p>What changes in disease, why those changes happen and how they shape function.</p>
+            <div class="path-foot">WHEN SYSTEMS CHANGE</div>
+          </article>
+
+          <article class="path-card" data-category="molecules" style="--accent:#496fa1;--tint:#edf3fa">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">＋</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Pharmacology</h3>
+            <p>How medicines interact with the body—and how the body processes medicines.</p>
+            <div class="path-foot">MECHANISM, EFFECT & CONTEXT</div>
+          </article>
+
+          <article class="path-card" data-category="body" style="--accent:#875f99;--tint:#f4edf7">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">⌁</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Neuroscience</h3>
+            <p>How the nervous system senses, signals, responds and shapes experience.</p>
+            <div class="path-foot">SIGNALS THAT BECOME ACTION</div>
+          </article>
+
+          <article class="path-card" data-category="care" style="--accent:#a85f77;--tint:#f8edf1">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">◌</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Clinical thinking</h3>
+            <p>How to gather clues, weigh possibilities and keep the person—not just the problem—in view.</p>
+            <div class="path-foot">FROM KNOWING TO NOTICING</div>
+          </article>
+
+          <article class="path-card" data-category="care" style="--accent:#54818c;--tint:#edf5f5">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">↔</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Communication & care</h3>
+            <p>Listening, explaining, uncertainty and the human work that holds clinical knowledge.</p>
+            <div class="path-foot">SCIENCE MEETS A PERSON</div>
+          </article>
+
+          <article class="path-card" data-category="care" style="--accent:#7f7948;--tint:#f5f3e8">
+            <div class="path-top">
+              <span class="path-icon" aria-hidden="true">◎</span>
+              <span class="status">Series pathway</span>
+            </div>
+            <h3>Evidence & public health</h3>
+            <p>How we interpret evidence and understand health beyond one body or one clinic.</p>
+            <div class="path-foot">PEOPLE, PATTERNS & POPULATIONS</div>
+          </article>
+        </div>
+
+        <p class="roadmap-note">
+          This is a series map, not a promise that every pathway is already a finished
+          book. The physiology edition is being reworked; the other subjects are
+          possibilities for what can grow next.
+        </p>
+      </div>
+    </section>
+
+    <section class="section learning-section" id="approach" aria-labelledby="approach-title">
+      <div class="section-shell">
+        <div class="section-head">
+          <span class="eyebrow">A familiar rhythm, chapter after chapter</span>
+          <h2 id="approach-title">Learn the idea. Then see where it goes.</h2>
+          <p>
+            Each chapter moves from a human reason to care, into the mechanism, and
+            back out toward clinical meaning. The aim is not to make difficult science
+            small. It is to make the next step feel possible.
+          </p>
+        </div>
+
+        <div class="learning-steps">
+          <article class="learning-step">
+            <h3>Arrive with a question</h3>
+            <p>A story, observation or “why does my body do that?” moment gives the topic a reason to matter.</p>
+          </article>
+          <article class="learning-step">
+            <h3>Build the mechanism</h3>
+            <p>Start with the foundations, then follow each step. Clear language and a useful analogy help the details connect.</p>
+          </article>
+          <article class="learning-step">
+            <h3>Meet the clinic</h3>
+            <p>Clinical notes and mini-cases show what the mechanism can help you notice in a person.</p>
+          </article>
+          <article class="learning-step">
+            <h3>Pause, retrieve, reflect</h3>
+            <p>Takeaways, questions and a quick self-check make space to see what you understand—and what to revisit.</p>
+          </article>
+        </div>
+
+        <p class="learning-note">
+          No performance required to belong here. Marks can tell you how one
+          assessment went; they do not measure your worth or your capacity to grow.
+        </p>
+      </div>
+    </section>
+
+    <section class="section demo-section" id="try-it" aria-labelledby="demo-title">
+      <div class="section-shell demo-grid">
+        <div class="demo-intro">
+          <span class="eyebrow">A tiny physiology detour</span>
+          <h2 id="demo-title">Why does your heart speed up before a presentation?</h2>
+          <p>
+            Your body is already responding to a situation it thinks may need extra
+            attention. It is not being dramatic for no reason; it is adjusting its
+            output to meet a demand it has predicted.
+          </p>
+          <p>
+            That simple question opens into the nervous system, hormones, circulation
+            and the body's changing needs. One moment can lead to a whole network of ideas.
+          </p>
+        </div>
+
+        <div class="mechanism" aria-label="A simplified physiology explanation">
+          <div class="mechanism-head">
+            <span class="pulse-icon" aria-hidden="true">♡</span>
+            <div>
+              <small>Follow the signal</small>
+              <strong>A quick mechanism, in three steps</strong>
+            </div>
+          </div>
+
+          <div class="steps-list">
+            <div class="mechanism-step">
+              <span class="num">1</span>
+              <p><strong>The brain notices a challenge.</strong> Anticipating a presentation can activate networks involved in attention and the stress response.</p>
+            </div>
+            <div class="mechanism-step">
+              <span class="num">2</span>
+              <p><strong>Sympathetic activity rises.</strong> Nerve signals and adrenal hormones, including adrenaline, help prepare the body for action.</p>
+            </div>
+            <div class="mechanism-step">
+              <span class="num">3</span>
+              <p><strong>The heart beats faster.</strong> Heart rate and cardiac output can increase, helping deliver blood to tissues that may need it.</p>
+            </div>
+          </div>
+
+          <div class="check-question">
+            <b>Think it through</b>
+            <p>If the heart is beating faster, what might happen to cardiac output if stroke volume stays the same?</p>
+            <button class="reveal-button" type="button" aria-expanded="false" aria-controls="answer">
+              Show a hint + answer
+            </button>
+            <p class="answer" id="answer" hidden>
+              Cardiac output = heart rate × stroke volume. If stroke volume stays
+              constant while heart rate increases, cardiac output increases. Real
+              responses vary with the person and situation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="closing-inner">
+        <div>
+          <span class="eyebrow">Curiosity is a good first step</span>
+          <h2 id="closing-title">You do not have to know it all before you begin.</h2>
+          <p>Start with one question. Follow it until the body begins to make a little more sense.</p>
+        </div>
+        <a class="button" href="#subjects">
+          Choose a science pathway <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/before-the-stethoscope-mark.png" alt="">
+        <div>
+          <strong>Before the Stethoscope</strong>
+          <small>A learning project by Isha Tiwari</small>
+        </div>
+      </div>
+      <div class="footer-meta">
+        Foundational medicine, with a human centre.<br>
+        Educational overview only; not medical advice.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.path-card');
+
+    filters.forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.filter;
+
+        filters.forEach((item) => {
+          item.setAttribute('aria-pressed', String(item === button));
+        });
+
+        cards.forEach((card) => {
+          card.hidden = value !== 'all' && card.dataset.category !== value;
+        });
+      });
+    });
+
+    const revealButton = document.querySelector('.reveal-button');
+    const answer = document.getElementById('answer');
+
+    revealButton.addEventListener('click', () => {
+      const willOpen = answer.hidden;
+      answer.hidden = !willOpen;
+      revealButton.setAttribute('aria-expanded', String(willOpen));
+      revealButton.textContent = willOpen ? 'Hide the answer' : 'Show a hint + answer';
+    });
+
+    const menuButton = document.querySelector('.menu-button');
+    const menu = document.getElementById('nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Close' : 'Menu';
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+      });
+    });
+  </script>
+</body>
+</html>
