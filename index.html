@@ -1,1524 +1,179 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f6fb">
-  <meta name="description" content="Before the Stethoscope is a warm, rigorous guide to the science that helps future clinicians understand the human body before they meet the bedside.">
-  <title>Before the Stethoscope — The science before the clinic</title>
-  <link rel="icon" type="image/png" href="images/before-the-stethoscope-mark.png">
-  <style>
-    :root {
-      --ink: #302b3a;
-      --muted: #696274;
-      --violet: #6648aa;
-      --violet-dark: #4f338d;
-      --lavender: #ede5ff;
-      --lilac-wash: #f8f5ff;
-      --coral: #df826e;
-      --cream: #fffdf8;
-      --paper: #ffffff;
-      --line: #e9e4ef;
-      --mint: #e8f2ed;
-      --gold: #f3e3bd;
-      --shadow: 0 22px 60px rgba(50, 38, 75, .09);
-      --radius: 24px;
-      --serif: Georgia, 'Times New Roman', serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 86px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-    }
-
-.lab-callout {
-  padding: 30px;
-  background: #f8f5ff;
-}
-
-.lab-callout-inner {
-  width: min(1100px, 100%);
-  margin: auto;
-  padding: 30px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 24px;
-  background: #fffefa;
-  border: 1px solid #e9e4ef;
-  border-radius: 22px;
-  box-shadow: 0 18px 50px rgba(53, 35, 77, .07);
-}
-
-.lab-callout h2 {
-  margin: 9px 0;
-  color: #302a39;
-  font: 500 clamp(1.8rem, 3.5vw, 2.6rem)/1.1 Georgia, "Times New Roman", serif;
-}
-
-.lab-callout p {
-  max-width: 690px;
-  margin: 0;
-  color: #696274;
-}
-
-.lab-callout-label {
-  color: #7957a0;
-  font-size: .7rem;
-  font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.lab-callout-button {
-  display: inline-block;
-  padding: 13px 20px;
-  border-radius: 999px;
-  background: #56347d;
-  color: white;
-  font-weight: 750;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.lab-callout-button:hover {
-  background: #432861;
-}
-
-@media (max-width: 700px) {
-  .lab-callout-inner {
-    grid-template-columns: 1fr;
-    padding: 22px;
-  }
-
-  .lab-callout-button {
-    justify-self: start;
-  }
-}
-
-    
-    a { color: inherit; }
-    button { font: inherit; }
-
-    .announcement {
-      padding: 9px 20px;
-      background: var(--ink);
-      color: #f8f5ff;
-      text-align: center;
-      font-size: .78rem;
-      letter-spacing: .035em;
-    }
-
-    .announcement b {
-      color: #e8c89b;
-      font-weight: 650;
-    }
-
-    .site-header {
-      position: sticky;
-      z-index: 20;
-      top: 0;
-      background: rgba(255,253,248,.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(233,228,239,.85);
-    }
-
-    .nav {
-      width: min(1180px, calc(100% - 44px));
-      min-height: 76px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      text-decoration: none;
-      min-width: 230px;
-    }
-
-    .brand img {
-      width: 49px;
-      height: 49px;
-      object-fit: contain;
-    }
-
-    .brand-name {
-      display: grid;
-      font-family: var(--serif);
-      font-size: 1.08rem;
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -.025em;
-    }
-
-    .brand-name small {
-      margin-top: 5px;
-      color: var(--muted);
-      font: 600 .62rem var(--sans);
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 27px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #5d5667;
-      font-size: .88rem;
-      font-weight: 580;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--violet);
-    }
-
-    .nav-cta,
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 18px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--violet);
-      color: white;
-      text-decoration: none;
-      font-size: .9rem;
-      font-weight: 680;
-      box-shadow: 0 8px 18px rgba(102,72,170,.16);
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .nav-cta:hover,
-    .button:hover {
-      background: var(--violet-dark);
-      transform: translateY(-2px);
-    }
-
-    .menu-button {
-      display: none;
-      border: 1px solid var(--line);
-      background: white;
-      color: var(--ink);
-      border-radius: 12px;
-      padding: 9px 12px;
-      cursor: pointer;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 74px 0 82px;
-      background:
-        radial-gradient(ellipse at 86% 18%, rgba(237,229,255,.95), transparent 34%),
-        radial-gradient(ellipse at 9% 96%, rgba(243,227,189,.27), transparent 32%),
-        #fbf9fd;
-    }
-
-    .hero:before,
-    .hero:after {
-      content: '';
-      position: absolute;
-      border: 1px solid rgba(102,72,170,.1);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero:before {
-      width: 520px;
-      height: 520px;
-      top: -330px;
-      right: 2%;
-    }
-
-    .hero:after {
-      width: 760px;
-      height: 760px;
-      top: -450px;
-      right: -8%;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      width: min(1180px, calc(100% - 44px));
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.06fr .94fr;
-      align-items: center;
-      gap: 54px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--violet);
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-size: .72rem;
-      font-weight: 750;
-    }
-
-    .eyebrow:before {
-      content: '';
-      width: 22px;
-      height: 1px;
-      background: var(--coral);
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      max-width: 660px;
-      margin: 17px 0 20px;
-      font: 500 clamp(3rem, 6.4vw, 5.45rem)/.99 var(--serif);
-      letter-spacing: -.055em;
-    }
-
-    h1 em {
-      color: var(--violet);
-      font-style: italic;
-    }
-
-    .hero-copy {
-      max-width: 560px;
-      color: #625b6b;
-      font-size: 1.13rem;
-      line-height: 1.75;
-    }
-
-    .hero-copy strong {
-      color: var(--ink);
-      font-weight: 650;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 13px;
-      margin-top: 28px;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid #d8d0e4;
-      box-shadow: none;
-    }
-
-    .button.secondary:hover {
-      background: white;
-      color: var(--violet);
-    }
-
-    .hero-note {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 25px;
-      color: #777080;
-      font-size: .82rem;
-    }
-
-    .hero-note span {
-      color: var(--coral);
-      font-size: 1.1rem;
-    }
-
-    .hero-art {
-      position: relative;
-      min-height: 425px;
-      display: grid;
-      place-items: center;
-    }
-
-    .orbit {
-      position: absolute;
-      width: min(420px, 90%);
-      aspect-ratio: 1;
-      border: 1px solid rgba(102,72,170,.15);
-      border-radius: 50%;
-    }
-
-    .orbit:before,
-    .orbit:after {
-      content: '';
-      position: absolute;
-      border: 1px solid rgba(102,72,170,.11);
-      border-radius: 50%;
-      inset: 29px;
-    }
-
-    .orbit:after { inset: 66px; }
-
-    .book-card {
-      position: relative;
-      z-index: 1;
-      width: min(350px, 85%);
-      padding: 31px 31px 27px;
-      background: var(--paper);
-      border: 1px solid rgba(226,219,238,.85);
-      border-radius: 22px 22px 22px 7px;
-      box-shadow: var(--shadow);
-      transform: rotate(2deg);
-    }
-
-    .book-card:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 24px;
-      bottom: 24px;
-      width: 4px;
-      border-radius: 0 4px 4px 0;
-      background: var(--coral);
-    }
-
-    .card-label {
-      color: var(--violet);
-      font-size: .67rem;
-      font-weight: 750;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .book-card h2 {
-      margin: 12px 0 10px;
-      font: 500 2rem/1.08 var(--serif);
-      letter-spacing: -.03em;
-    }
-
-    .book-card p {
-      margin-bottom: 19px;
-      color: #736c7c;
-      font-size: .92rem;
-    }
-
-    .scribble {
-      padding: 15px 15px 13px;
-      background: var(--lilac-wash);
-      border-radius: 11px;
-      color: #51485f;
-      font: italic 1.04rem/1.45 var(--serif);
-    }
-
-    .scribble small {
-      display: block;
-      margin-top: 11px;
-      color: #8b8296;
-      font: 650 .65rem var(--sans);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .float-tag {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 10px 14px;
-      background: white;
-      border: 1px solid #ebe6f1;
-      border-radius: 999px;
-      color: #5b5368;
-      font-size: .77rem;
-      font-weight: 650;
-      box-shadow: 0 10px 28px rgba(50,38,75,.08);
-    }
-
-    .float-tag i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--coral);
-    }
-
-    .tag-one { top: 35px; right: 6px; }
-    .tag-two { bottom: 43px; left: 0; }
-    .tag-three { bottom: 4px; right: 25px; }
-
-    .section { padding: 94px 0; }
-
-    .section-shell {
-      width: min(1120px, calc(100% - 44px));
-      margin: auto;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin: 0 auto 43px;
-      text-align: center;
-    }
-
-    .section-head .eyebrow { justify-content: center; }
-
-    .section-head h2 {
-      margin: 13px 0 14px;
-      font: 500 clamp(2.2rem, 4.1vw, 3.55rem)/1.08 var(--serif);
-      letter-spacing: -.045em;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .story-section { background: white; }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: .86fr 1.14fr;
-      align-items: center;
-      gap: 62px;
-    }
-
-    .story-visual {
-      position: relative;
-      min-height: 355px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg,#f5efff,#fffaf0);
-      border-radius: 28px;
-      overflow: hidden;
-    }
-
-    .story-visual:before {
-      content: '';
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border: 1px solid rgba(102,72,170,.17);
-      border-radius: 50%;
-    }
-
-    .story-visual:after {
-      content: '✦';
-      position: absolute;
-      top: 32px;
-      right: 44px;
-      color: var(--coral);
-      font-size: 1.3rem;
-    }
-
-    .notebook {
-      position: relative;
-      width: 225px;
-      padding: 24px 22px;
-      background: #fffefa;
-      border-radius: 5px 17px 17px 5px;
-      box-shadow: 0 18px 40px rgba(55,39,82,.13);
-      transform: rotate(-5deg);
-    }
-
-    .notebook:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 13px;
-      background: repeating-linear-gradient(to bottom,#d7c8f3 0 5px,transparent 5px 20px);
-      border-radius: 5px 0 0 5px;
-    }
-
-    .notebook .date {
-      padding-left: 12px;
-      color: #8a8195;
-      font-size: .63rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .notebook blockquote {
-      margin: 18px 0 12px 12px;
-      color: var(--violet-dark);
-      font: italic 1.32rem/1.32 var(--serif);
-    }
-
-    .notebook .underline {
-      width: 76%;
-      height: 2px;
-      margin-left: 12px;
-      background: #e9a48f;
-      transform: rotate(-2deg);
-    }
-
-    .notebook .margin-note {
-      margin: 18px 0 0 12px;
-      color: #807789;
-      font-size: .74rem;
-    }
-
-    .story-copy .eyebrow { margin-bottom: 13px; }
-
-    .story-copy h2 {
-      margin: 0 0 17px;
-      font: 500 clamp(2.2rem, 4vw, 3.2rem)/1.08 var(--serif);
-      letter-spacing: -.045em;
-    }
-
-    .story-copy p {
-      color: #6b6473;
-      line-height: 1.8;
-    }
-
-    .story-copy p.lead {
-      color: #423b4e;
-      font-size: 1.1rem;
-    }
-
-    .pullquote {
-      margin-top: 24px;
-      padding: 16px 0 16px 19px;
-      border-left: 2px solid var(--coral);
-      color: var(--violet-dark);
-      font: italic 1.12rem/1.5 var(--serif);
-    }
-
-    .pathway-section { background: #fbf9fd; }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin: -10px 0 30px;
-    }
-
-    .filter {
-      padding: 9px 14px;
-      border: 1px solid #e1dbe9;
-      border-radius: 999px;
-      background: white;
-      color: #665f70;
-      font-size: .8rem;
-      font-weight: 650;
-      cursor: pointer;
-      transition: all .18s ease;
-    }
-
-    .filter:hover,
-    .filter[aria-pressed="true"] {
-      border-color: var(--violet);
-      background: var(--violet);
-      color: white;
-    }
-
-    .pathways {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 15px;
-    }
-
-    .path-card {
-      min-height: 225px;
-      display: flex;
-      flex-direction: column;
-      padding: 23px 23px 20px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .path-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(50,38,75,.08);
-    }
-
-    .path-card[hidden] { display: none; }
-
-    .path-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .path-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--tint,#f2edfb);
-      color: var(--accent,var(--violet));
-      font-size: 1.25rem;
-    }
-
-    .status {
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: #f6f3f8;
-      color: #777080;
-      font-size: .62rem;
-      font-weight: 750;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .status.current {
-      background: #eaf3ed;
-      color: #42634f;
-    }
-
-    .path-card h3 {
-      margin: 17px 0 7px;
-      font: 600 1.22rem var(--serif);
-      letter-spacing: -.015em;
-    }
-
-    .path-card p {
-      margin: 0;
-      color: #706a78;
-      font-size: .86rem;
-      line-height: 1.6;
-    }
-
-    .path-card .path-foot {
-      margin-top: auto;
-      padding-top: 16px;
-      color: var(--accent,var(--violet));
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-    }
-
-    .roadmap-note {
-      margin: 23px auto 0;
-      max-width: 740px;
-      text-align: center;
-      color: #807989;
-      font-size: .82rem;
-    }
-
-    .learning-section {
-      background: var(--ink);
-      color: #fff;
-    }
-
-    .learning-section .section-head p { color: #c6bfce; }
-    .learning-section .section-head .eyebrow { color: #d9c5ff; }
-
-    .learning-steps {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 13px;
-      counter-reset: steps;
-    }
-
-    .learning-step {
-      position: relative;
-      min-height: 226px;
-      padding: 24px 21px;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 16px;
-      background: rgba(255,255,255,.055);
-    }
-
-    .learning-step:before {
-      counter-increment: steps;
-      content: '0' counter(steps);
-      color: #e6a18f;
-      font: italic 1.5rem var(--serif);
-    }
-
-    .learning-step h3 {
-      margin: 23px 0 9px;
-      color: white;
-      font: 500 1.2rem var(--serif);
-    }
-
-    .learning-step p {
-      margin: 0;
-      color: #c4bdcc;
-      font-size: .84rem;
-      line-height: 1.65;
-    }
-
-    .learning-note {
-      margin: 23px auto 0;
-      max-width: 760px;
-      color: #d9d2e0;
-      text-align: center;
-      font-size: .9rem;
-    }
-
-    .demo-section { background: white; }
-
-    .demo-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 40px;
-      align-items: stretch;
-    }
-
-    .demo-intro { padding: 25px 10px 25px 0; }
-
-    .demo-intro h2 {
-      margin: 13px 0 15px;
-      font: 500 clamp(2.1rem, 3.6vw, 3.05rem)/1.1 var(--serif);
-      letter-spacing: -.04em;
-    }
-
-    .demo-intro p {
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .mechanism {
-      padding: 27px;
-      border: 1px solid #e7dfef;
-      border-radius: 22px;
-      background: #fbf9ff;
-    }
-
-    .mechanism-head {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-bottom: 20px;
-    }
-
-    .pulse-icon {
-      width: 47px;
-      height: 47px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background: #fbe9e4;
-      color: #bc5c4d;
-      font-size: 1.38rem;
-    }
-
-    .mechanism-head small {
-      display: block;
-      color: var(--violet);
-      font-size: .65rem;
-      font-weight: 750;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .mechanism-head strong {
-      display: block;
-      margin-top: 3px;
-      font: 600 1.12rem var(--serif);
-    }
-
-    .steps-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .mechanism-step {
-      display: grid;
-      grid-template-columns: 31px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 13px;
-      background: white;
-      border: 1px solid #eee9f3;
-      border-radius: 13px;
-    }
-
-    .mechanism-step .num {
-      width: 27px;
-      height: 27px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--lavender);
-      color: var(--violet);
-      font-size: .75rem;
-      font-weight: 750;
-    }
-
-    .mechanism-step p {
-      margin: 1px 0 0;
-      color: #615a6c;
-      font-size: .83rem;
-      line-height: 1.55;
-    }
-
-    .mechanism-step strong { color: var(--ink); }
-
-    .check-question {
-      margin-top: 17px;
-      padding: 16px;
-      border-radius: 13px;
-      background: #f5eee2;
-    }
-
-    .check-question b {
-      display: block;
-      margin-bottom: 5px;
-      font: 600 1rem var(--serif);
-    }
-
-    .check-question p {
-      margin: 0 0 12px;
-      color: #665e69;
-      font-size: .82rem;
-    }
-
-    .reveal-button {
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--violet);
-      font-size: .79rem;
-      font-weight: 750;
-      cursor: pointer;
-    }
-
-    .answer {
-      margin: 11px 0 0;
-      padding-top: 10px;
-      border-top: 1px solid #e3d8c6;
-      color: #514a57;
-      font-size: .83rem;
-    }
-
-    .answer[hidden] { display: none; }
-
-    .closing {
-      padding: 75px 0;
-      background: linear-gradient(120deg,#eee7fa,#fcf5ec);
-    }
-
-    .closing-inner {
-      width: min(1000px, calc(100% - 44px));
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 34px;
-    }
-
-    .closing h2 {
-      max-width: 650px;
-      margin: 10px 0 9px;
-      font: 500 clamp(2.1rem, 4vw, 3.3rem)/1.08 var(--serif);
-      letter-spacing: -.04em;
-    }
-
-    .closing p {
-      margin: 0;
-      color: #6c6474;
-    }
-
-    footer {
-      padding: 34px 0;
-      background: #26222e;
-      color: #f2edf7;
-    }
-
-    .footer-inner {
-      width: min(1120px, calc(100% - 44px));
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-brand img {
-      width: 45px;
-      height: 45px;
-      object-fit: contain;
-    }
-
-    .footer-brand strong {
-      display: block;
-      font: 600 1rem var(--serif);
-    }
-
-    .footer-brand small,
-    .footer-meta {
-      color: #bcb4c6;
-      font-size: .73rem;
-    }
-
-    .footer-meta {
-      text-align: right;
-      line-height: 1.7;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    :focus-visible {
-      outline: 3px solid #d77d68;
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 860px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-        padding: 16px 24px 22px;
-        background: var(--cream);
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-      }
-
-      .nav-links.open { display: flex; }
-      .menu-button { display: block; }
-      .nav-cta { display: none; }
-      .hero-grid { grid-template-columns: 1fr; gap: 10px; }
-      .hero-copy { max-width: 650px; }
-      .hero-art { min-height: 380px; }
-      .story-grid,
-      .demo-grid { grid-template-columns: 1fr; gap: 33px; }
-      .story-visual { min-height: 310px; }
-      .pathways { grid-template-columns: repeat(2,1fr); }
-      .learning-steps { grid-template-columns: repeat(2,1fr); }
-      .closing-inner { align-items: flex-start; flex-direction: column; }
-    }
-
-    @media (max-width: 560px) {
-      .announcement { font-size: .68rem; }
-      .nav {
-        width: min(100% - 30px, 1180px);
-        min-height: 68px;
-      }
-      .brand { min-width: 0; gap: 7px; }
-      .brand img { width: 40px; height: 40px; }
-      .brand-name { font-size: .93rem; }
-      .brand-name small { font-size: .54rem; }
-      .nav-links { top: 67px; }
-      .hero { padding: 54px 0 53px; }
-      .hero-grid,
-      .section-shell { width: min(100% - 32px, 1120px); }
-      h1 { font-size: clamp(2.8rem, 14vw, 4.1rem); }
-      .hero-copy { font-size: 1rem; }
-      .hero-art { min-height: 360px; }
-      .book-card { padding: 27px 24px 22px; }
-      .tag-one { right: -5px; top: 13px; }
-      .tag-two { left: -4px; bottom: 33px; }
-      .tag-three { right: 0; bottom: 0; }
-      .section { padding: 69px 0; }
-      .pathways { grid-template-columns: 1fr; }
-      .path-card { min-height: auto; }
-      .learning-steps { grid-template-columns: 1fr; }
-      .learning-step { min-height: 0; }
-      .learning-step h3 { margin-top: 14px; }
-      .mechanism { padding: 18px; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-      .footer-meta { text-align: left; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *:before,
-      *:after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f4fb">
+<meta name="description" content="Before the Stethoscope is a medical science book series that begins with a person and follows the questions, mechanisms and connections that help us understand the body.">
+<title>Before the Stethoscope — Science with a human centre</title>
+<link rel="icon" type="image/png" href="assets/before-the-stethoscope-mark.png">
+<style>
+:root{color-scheme:light;--bg:#fbf9f5;--surface:#fffefa;--surface-soft:#f4effa;--surface-warm:#fff8e6;--ink:#302a3b;--muted:#6c6475;--violet:#6542a0;--violet-deep:#432767;--violet-wash:#eee7f7;--yellow:#f2cd62;--coral:#d77d6c;--line:#e7dfec;--shadow:0 18px 50px rgba(48,31,68,.09);--glow:0 0 0 transparent;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#17131d;--surface:#211b2a;--surface-soft:#292136;--surface-warm:#30271f;--ink:#f4eff8;--muted:#c1b8cc;--violet:#c2a1ff;--violet-deep:#a985ee;--violet-wash:#342842;--yellow:#f4d36c;--coral:#f09a86;--line:#40364c;--shadow:0 18px 50px rgba(0,0,0,.28)}
+:root[data-theme="magic"]{color-scheme:dark;--bg:#100a1b;--surface:#1a1129;--surface-soft:#231537;--surface-warm:#2d1d30;--ink:#fbf6ff;--muted:#d1c2e5;--violet:#d0a9ff;--violet-deep:#aa74ff;--violet-wash:#34204e;--yellow:#ffe36f;--coral:#ff9bca;--line:#5d3c7b;--shadow:0 0 28px #9e54f266,0 16px 44px #0008;--glow:0 0 28px #ad66ff55}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);transition:background .25s,color .25s}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:transparent}html[data-theme="magic"] body:before{background:radial-gradient(ellipse at 12% 14%,#8c44e522,transparent 33%),radial-gradient(ellipse at 90% 40%,#ff83d017,transparent 30%),radial-gradient(ellipse at 50% 100%,#6942eb1c,transparent 40%);animation:glow-drift 12s ease-in-out infinite alternate}@keyframes glow-drift{to{filter:hue-rotate(18deg);opacity:.8}}
+a{color:inherit}button{font:inherit;color:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:10px;padding:9px 12px;background:var(--surface);z-index:100}.skip-link:focus{left:10px}
+.announcement{padding:8px 16px;text-align:center;background:var(--violet-deep);color:white;font-size:.74rem;letter-spacing:.04em}.announcement strong{color:var(--yellow)}
+.site-header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{width:min(1200px,calc(100% - 36px));min-height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:max-content}.brand img{width:43px;height:43px;object-fit:contain}.brand-name{font:700 1rem var(--serif);line-height:1.15}.brand-name small{display:block;margin-top:4px;color:var(--muted);font:700 .59rem var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:21px}.nav-links a{text-decoration:none;font-size:.79rem;font-weight:650;color:var(--muted)}.nav-links a:hover{color:var(--violet)}.nav-tools{display:flex;align-items:center;gap:9px}.theme-picker{display:flex;padding:3px;border:1px solid var(--line);background:var(--surface);border-radius:999px;gap:2px}.theme-option{border:0;background:transparent;border-radius:999px;padding:7px 9px;cursor:pointer;color:var(--muted);font-size:.68rem;font-weight:750}.theme-option[aria-pressed="true"]{background:var(--violet);color:#fff;box-shadow:var(--glow)}html[data-theme="dark"] .theme-option[aria-pressed="true"],html[data-theme="magic"] .theme-option[aria-pressed="true"]{color:#21142e}.menu-toggle{display:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 12px;font-weight:750;font-size:.77rem}
+.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.hero{position:relative;overflow:hidden;padding:64px 0 55px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:38px}.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.15em;font-size:.68rem;font-weight:850;color:var(--violet)}.eyebrow:before{content:"";width:20px;height:2px;background:var(--yellow)}h1,h2,h3,p{margin-top:0}h1{max-width:700px;margin:14px 0 16px;font:500 clamp(2.7rem,5.7vw,5.1rem)/.99 var(--serif);letter-spacing:-.05em}h1 em{color:var(--violet);font-style:italic}.hero-copy{max-width:620px;color:var(--muted);font-size:1.02rem;line-height:1.75}.hero-copy strong{color:var(--ink);font-weight:700}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--violet);border-radius:999px;padding:12px 17px;background:var(--violet);color:white;text-decoration:none;font-size:.8rem;font-weight:800;box-shadow:var(--glow);transition:transform .2s,box-shadow .2s}.button:hover{transform:translateY(-2px);box-shadow:var(--shadow),var(--glow)}.button.secondary{background:transparent;color:var(--violet)}.hero-note{margin-top:18px;color:var(--muted);font-size:.76rem}.hero-note b{color:var(--violet)}
+.hero-art{position:relative;min-height:400px;display:grid;place-items:center}.orbit{position:absolute;width:min(385px,90%);aspect-ratio:1;border:1px solid color-mix(in srgb,var(--violet) 32%,transparent);border-radius:50%;box-shadow:var(--glow);animation:orbit-breathe 6s ease-in-out infinite}.orbit:before,.orbit:after{content:"";position:absolute;inset:30px;border:1px dashed color-mix(in srgb,var(--violet) 24%,transparent);border-radius:50%}.orbit:after{inset:72px;border-style:solid;opacity:.75}@keyframes orbit-breathe{50%{transform:scale(1.025);opacity:.75}}
+.orbit-dot{position:absolute;width:17px;height:17px;border:4px solid var(--surface);background:var(--yellow);border-radius:50%;box-shadow:0 0 0 5px color-mix(in srgb,var(--yellow) 22%,transparent),var(--glow)}.dot-a{top:39px;left:57px}.dot-b{right:45px;top:150px;background:var(--coral)}.dot-c{bottom:50px;left:98px;background:#7bc5b0}
+.chapter-card{position:relative;z-index:2;width:min(300px,78%);padding:25px 25px 22px;background:var(--surface);border:1px solid var(--line);border-radius:23px 23px 23px 7px;box-shadow:var(--shadow),var(--glow);transform:rotate(-2deg)}.chapter-card:before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:4px;background:var(--yellow);border-radius:0 4px 4px 0}.chapter-card small{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--violet);font-weight:850}.chapter-card h2{margin:11px 0 8px;font:500 1.75rem/1.08 var(--serif)}.chapter-card p{margin:0;color:var(--muted);font-size:.8rem}.card-question{display:inline-block;margin-top:16px;padding:9px 11px;border-radius:11px;background:var(--surface-soft);color:var(--violet);font:italic .9rem var(--serif)}
+.float-tag{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:var(--shadow),var(--glow);font-size:.66rem;font-weight:800;color:var(--ink);animation:tag-float 4.5s ease-in-out infinite}.float-tag i{width:8px;height:8px;border-radius:50%;background:var(--yellow)}.tag-one{left:2%;top:16%}.tag-two{right:0;bottom:16%;animation-delay:-2s}.tag-two i{background:var(--coral)}@keyframes tag-float{50%{transform:translateY(-7px)}}
+.signal-strip{background:var(--surface-soft);border-block:1px solid var(--line)}.signal-inner{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding:15px 0;color:var(--muted);font-size:.72rem;font-weight:700}.signal-inner span{display:flex;align-items:center;gap:7px}.signal-inner i{width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+.section{padding:78px 0}.section-head{max-width:760px;margin:0 auto 34px;text-align:center}.section-head h2{margin:10px 0 11px;font:500 clamp(2rem,4vw,3.35rem)/1.08 var(--serif);letter-spacing:-.04em}.section-head p{margin:0 auto;color:var(--muted);max-width:680px;font-size:.9rem}
+.journey-section{background:var(--surface)}.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step-card{min-height:194px;text-align:left;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--bg);cursor:pointer;transition:transform .2s,border .2s,box-shadow .2s}.step-card:hover,.step-card[aria-pressed="true"]{transform:translateY(-3px);border-color:var(--violet);box-shadow:var(--shadow),var(--glow)}.step-top{display:flex;justify-content:space-between;align-items:center;color:var(--violet);font-size:.68rem;font-weight:900;letter-spacing:.13em}.step-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:11px;background:var(--violet-wash);font-size:.88rem}.step-card h3{margin:15px 0 7px;font:600 1.16rem/1.2 var(--serif)}.step-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.55}.step-detail{margin-top:14px;padding:21px 23px;display:grid;grid-template-columns:auto 1fr;align-items:start;gap:15px;border:1px solid color-mix(in srgb,var(--violet) 30%,var(--line));border-radius:18px;background:linear-gradient(110deg,var(--surface-soft),var(--surface-warm));box-shadow:var(--glow)}.detail-mark{width:39px;height:39px;display:grid;place-items:center;border-radius:14px;background:var(--yellow);color:#453122;font-weight:900}.step-detail h3{margin:0 0 5px;font:600 1.15rem var(--serif)}.step-detail p{margin:0;color:var(--muted);font-size:.82rem}.step-detail .prompt{display:block;margin-top:9px;color:var(--violet);font-size:.78rem;font-weight:750}
+.science-section{background:var(--bg)}.science-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:35px;align-items:start}.science-intro h2{margin:9px 0 12px;font:500 clamp(2rem,4vw,3rem)/1.08 var(--serif)}.science-intro p{color:var(--muted);font-size:.88rem}.science-detail{margin-top:18px;padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--glow)}.science-detail b{display:block;margin-bottom:5px;color:var(--violet);font:600 1.05rem var(--serif)}.science-detail p{margin:0;color:var(--muted);font-size:.78rem}.science-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.science-card{min-height:108px;padding:14px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;cursor:pointer;transition:.2s;box-shadow:var(--glow)}.science-card:hover,.science-card[aria-pressed="true"]{border-color:var(--violet);transform:translateY(-2px);box-shadow:var(--shadow),var(--glow)}.science-symbol{width:30px;height:30px;margin-bottom:10px;display:grid;place-items:center;border-radius:10px;background:var(--violet-wash);color:var(--violet);font-size:.7rem;font-weight:900}.science-card b{display:block;font:600 .96rem var(--serif)}.science-card small{color:var(--muted);font-size:.65rem}
+.human-section{padding:0 0 78px}.human-card{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr .75fr;gap:30px;align-items:center;padding:34px;border-radius:24px;background:var(--violet-deep);color:#fff;box-shadow:var(--glow)}.human-card:after{content:"?";position:absolute;right:12%;top:-90px;font:500 22rem/.9 var(--serif);color:#ffffff0d;pointer-events:none}.human-card h2{position:relative;z-index:1;margin:10px 0 12px;font:500 clamp(2rem,4vw,3.2rem)/1.05 var(--serif)}.human-card p{position:relative;z-index:1;max-width:630px;margin:0;color:#eee7f5;font-size:.9rem}.human-questions{position:relative;z-index:1;display:grid;gap:8px}.human-questions div{padding:12px 14px;border:1px solid #ffffff35;border-radius:13px;background:#ffffff0c;font:italic .92rem var(--serif);color:#fff}.human-questions span{display:block;margin-top:4px;color:#e9d77f;font:700 .62rem var(--sans);text-transform:uppercase;letter-spacing:.12em}
+.lab-section{padding:0 0 78px}.lab-card{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;padding:30px;background:var(--surface-warm);border:1px solid color-mix(in srgb,var(--yellow) 35%,var(--line));border-radius:22px;box-shadow:var(--glow)}.lab-card h2{margin:8px 0;font:500 clamp(1.8rem,3.5vw,2.65rem)/1.08 var(--serif)}.lab-card p{max-width:690px;margin:0;color:var(--muted);font-size:.84rem}.closing{padding:40px 0 54px;border-top:1px solid var(--line)}.closing-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}.closing h2{margin:7px 0;font:500 clamp(1.65rem,3vw,2.35rem)/1.1 var(--serif)}.closing p{margin:0;color:var(--muted);font-size:.83rem}
+footer{padding:24px 0;background:var(--surface);border-top:1px solid var(--line)}.footer-inner{width:min(1160px,calc(100% - 40px));margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-brand{display:flex;gap:10px;align-items:center}.footer-brand img{width:38px;height:38px;object-fit:contain}.footer-brand strong{display:block;font:600 .95rem var(--serif)}.footer-brand small,.footer-meta{color:var(--muted);font-size:.69rem}.footer-meta{text-align:right}
+html[data-theme="magic"] .panel,html[data-theme="magic"] .step-card,html[data-theme="magic"] .science-card,html[data-theme="magic"] .chapter-card{box-shadow:var(--shadow),0 0 20px #be7bff30}
+@media(max-width:950px){.nav{flex-wrap:wrap;padding:10px 0}.nav-links{order:3;width:100%;justify-content:center;padding:5px 0}.hero-grid{grid-template-columns:1fr .8fr;gap:16px}.hero-art{min-height:350px}.science-layout{grid-template-columns:1fr}.science-intro{max-width:700px}.human-card{grid-template-columns:1fr .9fr}}
+@media(max-width:700px){.nav{justify-content:space-between}.nav-links{display:none;order:4;flex-direction:column;align-items:stretch;padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px}.nav-links.open{display:flex}.nav-links a{padding:8px}.menu-toggle{display:inline-block}.nav-tools{margin-left:auto}.theme-picker{max-width:224px}.theme-option{padding:6px 7px;font-size:.61rem}.brand{min-width:unset}.brand img{width:36px;height:36px}.brand-name{font-size:.88rem}.hero{padding:43px 0 36px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:320px;margin-top:5px}.orbit{width:min(310px,83%)}.chapter-card{width:min(270px,77%);padding:21px}.chapter-card h2{font-size:1.5rem}.tag-one{left:0;top:12%}.tag-two{right:0;bottom:10%}.section{padding:59px 0}.journey-grid{grid-template-columns:1fr 1fr}.step-card{min-height:180px;padding:15px}.human-section,.lab-section{padding-bottom:58px}.human-card{grid-template-columns:1fr;padding:25px}.human-card:after{font-size:15rem;right:8%;top:15%}.human-questions{grid-template-columns:1fr 1fr}.lab-card{grid-template-columns:1fr;padding:24px}.closing-inner{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.footer-meta{text-align:left}}
+@media(max-width:440px){.wrap{width:min(100% - 28px,1160px)}.nav{width:calc(100% - 24px);gap:8px}.brand-name small{font-size:.52rem}.nav-tools{gap:5px}.theme-option{padding:6px 6px;font-size:.56rem}.menu-toggle{padding:7px 9px;font-size:.68rem}.journey-grid{grid-template-columns:1fr}.step-card{min-height:0}.science-grid{grid-template-columns:repeat(2,1fr)}.human-questions{grid-template-columns:1fr}.hero-art{min-height:285px}.signal-inner{gap:8px}.signal-inner span{font-size:.64rem}.step-detail{padding:16px}.announcement{font-size:.67rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="magic"] h1,html[data-theme="magic"] h2,html[data-theme="magic"] h3{color:var(--ink)}
+</style>
 </head>
 <body>
-  <div class="announcement">
-    <b>A work in progress, made with care</b> · The physiology book is taking shape; the wider science map is a beginning.
-  </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="announcement"><strong>A science series with a human centre</strong> · Start with a person. Stay curious about the whole story.</div>
+<header class="site-header">
+<nav class="nav" aria-label="Main navigation">
+<a class="brand" href="#top" aria-label="Before the Stethoscope home"><img src="assets/before-the-stethoscope-mark.png" alt=""><span class="brand-name">Before the Stethoscope<small>Medicine · students · understanding</small></span></a>
+<div class="nav-links" id="nav-links"><a href="#journey">The chapter journey</a><a href="#science">Explore the science</a><a href="#human-centre">Our approach</a><a href="#lab">Enter the lab</a></div>
+<div class="nav-tools">
+<div class="theme-picker" role="group" aria-label="Choose page appearance">
+<button class="theme-option" type="button" data-theme-choice="system" aria-pressed="true" title="Use your device appearance">Auto</button>
+<button class="theme-option" type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+<button class="theme-option" type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+<button class="theme-option" type="button" data-theme-choice="magic" aria-pressed="false">Magic ✦</button>
+</div>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+</div>
+</nav>
+</header>
+<main id="main">
+<section class="hero" id="top">
+<div class="wrap hero-grid">
+<div>
+<span class="eyebrow">A medical science book series</span>
+<h1>Every chapter starts with <em>a person.</em></h1>
+<p class="hero-copy">Before the terms, diagrams and diagnoses, there is someone living through a moment. <strong>Before the Stethoscope</strong> follows that moment into the science—then brings the learning back to the person.</p>
+<div class="hero-actions"><a class="button" href="#journey">Explore the chapter journey <span aria-hidden="true">↓</span></a><a class="button secondary" href="cell-membrane-lab.html">Try the digital lab <span aria-hidden="true">↗</span></a></div>
+<p class="hero-note"><b>Story to science to care.</b> A steady rhythm for curious students and educators.</p>
+</div>
+<div class="hero-art" aria-label="A visual map from a person’s story to scientific understanding">
+<div class="orbit"><span class="orbit-dot dot-a"></span><span class="orbit-dot dot-b"></span><span class="orbit-dot dot-c"></span></div>
+<div class="chapter-card"><small>Inside every chapter</small><h2>A person.<br>A question.<br>A way forward.</h2><p>Learn the mechanism without losing sight of who it matters to.</p><span class="card-question">“What might we still need to ask?”</span></div>
+<div class="float-tag tag-one"><i></i> science, connected</div><div class="float-tag tag-two"><i></i> care begins with attention</div>
+</div>
+</div>
+</section>
+<div class="signal-strip"><div class="wrap signal-inner"><span><i></i>Human stories, handled with care</span><span><i></i>Clear mechanisms, not memorised fragments</span><span><i></i>Space for uncertainty and questions</span></div></div>
 
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Before the Stethoscope home">
-        <img src="images/before-the-stethoscope-mark.png" alt="">
-        <span class="brand-name">
-          Before the Stethoscope
-          <small>Medicine · students · understanding</small>
-        </span>
-      </a>
-
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
-        Menu
-      </button>
-
-      <div class="nav-links" id="nav-links">
-        <a href="#story">The story</a>
-        <a href="#subjects">Explore the science</a>
-        <a href="#approach">How it works</a>
-        <a href="#try-it">Try a concept</a>
-      </div>
-
-      <a class="nav-cta" href="#subjects">
-        Find your starting point <span aria-hidden="true">↗</span>
-      </a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div>
-          <span class="eyebrow">A learning companion for future clinicians</span>
-          <h1 id="hero-title">
-            Before the stethoscope, there is a <em>question.</em>
-          </h1>
-          <p class="hero-copy">
-            How does a body keep going? What changes when something goes wrong?
-            And how do we learn enough to meet those questions with care?
-            <strong>Start with curiosity. Build understanding. Let the facts find somewhere to belong.</strong>
-          </p>
-
-          <div class="hero-actions">
-            <a class="button" href="#subjects">
-              Explore the science <span aria-hidden="true">↓</span>
-            </a>
-            <a class="button secondary" href="#story">
-              Meet Violet <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-
-          <div class="hero-note">
-            <span aria-hidden="true">✳</span>
-            For the first years, the confused days, and the “wait, that actually makes sense” moments.
-          </div>
-        </div>
-
-        <div class="hero-art" aria-label="A page from Violet's notebook">
-          <div class="orbit"></div>
-          <div class="float-tag tag-one"><i></i> mechanisms, made clearer</div>
-          <div class="float-tag tag-two"><i></i> science with a human centre</div>
-          <div class="float-tag tag-three"><i></i> clinical links that make sense</div>
-
-          <article class="book-card">
-            <span class="card-label">Violet's notebook · week one</span>
-            <h2>So, what is physiology?</h2>
-            <p>A way of asking how the body works, how it adapts, and what those changes mean.</p>
-            <div class="scribble">
-              “Maybe my body had been teaching me all along. I just wasn't paying attention.”
-              <small>one thought, before the lecture notes</small>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section story-section" id="story" aria-labelledby="story-title">
-      <div class="section-shell story-grid">
-        <div class="story-visual" aria-hidden="true">
-          <div class="notebook">
-            <div class="date">A note to remember</div>
-            <blockquote>One day I want to understand.</blockquote>
-            <div class="underline"></div>
-            <div class="margin-note">Not every answer. Just enough to begin.</div>
-          </div>
-        </div>
-
-        <div class="story-copy">
-          <span class="eyebrow">A story before the syllabus</span>
-          <h2 id="story-title">Violet starts with a moment she cannot explain.</h2>
-          <p class="lead">
-            When Violet is nine, her grandmother suddenly becomes unwell.
-            Adults move quickly. New words fill the room. Violet is left with one
-            question that stays with her: <em>why did this happen?</em>
-          </p>
-          <p>
-            Years later, as she steps into medical school, that question follows
-            her into lectures, late-night notes and the first strange wonder of
-            seeing the body as more than a list of terms. Her story gives the
-            science somewhere human to begin.
-          </p>
-          <div class="pullquote">
-            You do not need to know everything on day one. You need a place to start,
-            room to ask, and time to connect the pieces.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="lab-callout" aria-labelledby="lab-callout-title">
-  <div class="lab-callout-inner">
-    <div>
-      <span class="lab-callout-label">Digital lab · Chapter one</span>
-      <h2 id="lab-callout-title">Meet the membrane: more than a wall.</h2>
-      <p>
-        Explore the membrane’s parts, animate the movement of different
-        molecules, and try a quick check to see what you understand.
-      </p>
-    </div>
-
-    <a class="lab-callout-button" href="cell-membrane-lab.html">
-      Enter the lab <span aria-hidden="true">↗</span>
-    </a>
-  </div>
+<section class="section journey-section" id="journey" aria-labelledby="journey-title">
+<div class="wrap">
+<div class="section-head"><span class="eyebrow">The series’ chapter rhythm</span><h2 id="journey-title">Six steps. One connected way of learning.</h2><p>Every chapter has its own science, but follows a familiar journey—from a person’s experience to a clearer, more thoughtful understanding.</p></div>
+<div class="journey-grid">
+<button class="step-card" type="button" data-step="0" aria-pressed="true"><span class="step-top">01 · BEGIN <span class="step-icon" aria-hidden="true">♡</span></span><h3>Begin with a person</h3><p>A short, respectful story gives the science a human starting point.</p></button>
+<button class="step-card" type="button" data-step="1" aria-pressed="false"><span class="step-top">02 · ASK <span class="step-icon" aria-hidden="true">?</span></span><h3>Ask the physiology question</h3><p>What is the body trying to do, regulate or respond to?</p></button>
+<button class="step-card" type="button" data-step="2" aria-pressed="false"><span class="step-top">03 · TRACE <span class="step-icon" aria-hidden="true">↘</span></span><h3>Explain the mechanism</h3><p>Follow the process clearly—from molecules and cells toward the whole body.</p></button>
+<button class="step-card" type="button" data-step="3" aria-pressed="false"><span class="step-top">04 · CONNECT <span class="step-icon" aria-hidden="true">⤳</span></span><h3>Connect the systems</h3><p>Bring in the other systems and conditions that shape what is happening.</p></button>
+<button class="step-card" type="button" data-step="4" aria-pressed="false"><span class="step-top">05 · RETURN <span class="step-icon" aria-hidden="true">↺</span></span><h3>Return to the person</h3><p>Consider what the mechanism helps explain—and what it cannot tell us alone.</p></button>
+<button class="step-card" type="button" data-step="5" aria-pressed="false"><span class="step-top">06 · REFLECT <span class="step-icon" aria-hidden="true">✳</span></span><h3>Check understanding</h3><p>Use a prediction, case, diagram or reflection to test an idea and find the next question.</p></button>
+</div>
+<div class="step-detail" aria-live="polite"><span class="detail-mark" id="step-mark">01</span><div><h3 id="step-detail-title">Begin with a person</h3><p id="step-detail-text">A chapter opens with a brief, respectful patient story. The person is never just a diagnosis or a device for introducing a fact.</p><span class="prompt" id="step-prompt">Notice: What is this person experiencing, and what might matter to them right now?</span></div></div>
+</div>
 </section>
 
-    <section class="section pathway-section" id="subjects" aria-labelledby="subjects-title">
-      <div class="section-shell">
-        <div class="section-head">
-          <span class="eyebrow">The bigger map</span>
-          <h2 id="subjects-title">Medicine is connected science.</h2>
-          <p>
-            One idea often opens a door into another. The series begins with
-            physiology and can grow into the subjects that help explain the whole
-            picture—from molecules and cells to people, patients and care.
-          </p>
-        </div>
+<section class="section science-section" id="science" aria-labelledby="science-title">
+<div class="wrap science-layout">
+<div class="science-intro"><span class="eyebrow">A wide map of medicine</span><h2 id="science-title">Many subjects. One living body.</h2><p>The books make room for the foundations that future clinicians draw on. Choose a subject to see the kind of question it can help us explore.</p><div class="science-detail" aria-live="polite"><b id="science-detail-title">Physiology</b><p id="science-detail-text">How does the body work, adapt and maintain its internal conditions?</p></div></div>
+<div class="science-grid" role="group" aria-label="Choose a science subject">
+<button class="science-card" data-subject="physiology" aria-pressed="true"><span class="science-symbol">PH</span><b>Physiology</b><small>Function and regulation</small></button>
+<button class="science-card" data-subject="anatomy" aria-pressed="false"><span class="science-symbol">AN</span><b>Anatomy</b><small>Structure and place</small></button>
+<button class="science-card" data-subject="biochemistry" aria-pressed="false"><span class="science-symbol">BC</span><b>Biochemistry</b><small>Molecules and energy</small></button>
+<button class="science-card" data-subject="cell" aria-pressed="false"><span class="science-symbol">CE</span><b>Cell biology</b><small>Boundaries and signals</small></button>
+<button class="science-card" data-subject="histology" aria-pressed="false"><span class="science-symbol">HI</span><b>Histology</b><small>Tissues under the lens</small></button>
+<button class="science-card" data-subject="genetics" aria-pressed="false"><span class="science-symbol">GE</span><b>Genetics</b><small>Information and inheritance</small></button>
+<button class="science-card" data-subject="microbiology" aria-pressed="false"><span class="science-symbol">MI</span><b>Microbiology</b><small>Life beyond the visible</small></button>
+<button class="science-card" data-subject="immunology" aria-pressed="false"><span class="science-symbol">IM</span><b>Immunology</b><small>Defence and response</small></button>
+<button class="science-card" data-subject="pathology" aria-pressed="false"><span class="science-symbol">PA</span><b>Pathology</b><small>When processes change</small></button>
+<button class="science-card" data-subject="pharmacology" aria-pressed="false"><span class="science-symbol">PH</span><b>Pharmacology</b><small>Medicines and mechanisms</small></button>
+<button class="science-card" data-subject="neuroscience" aria-pressed="false"><span class="science-symbol">NS</span><b>Neuroscience</b><small>Sensing, signalling, acting</small></button>
+<button class="science-card" data-subject="clinical" aria-pressed="false"><span class="science-symbol">CR</span><b>Clinical reasoning</b><small>Knowledge with context</small></button>
+</div>
+</div>
+</section>
 
-        <div class="filters" role="group" aria-label="Filter science topics">
-          <button class="filter" type="button" data-filter="all" aria-pressed="true">All pathways</button>
-          <button class="filter" type="button" data-filter="body" aria-pressed="false">The body</button>
-          <button class="filter" type="button" data-filter="molecules" aria-pressed="false">Cells & molecules</button>
-          <button class="filter" type="button" data-filter="defence" aria-pressed="false">Defence & disease</button>
-          <button class="filter" type="button" data-filter="care" aria-pressed="false">Clinical thinking</button>
-        </div>
+<section class="human-section" id="human-centre">
+<div class="wrap human-card">
+<div><span class="eyebrow" style="color:#f6db75">The human centre</span><h2>Science can explain a process. Listening helps us understand the person.</h2><p>Knowing more does not make a clinician less human. A strong explanation can support care, while curiosity, communication and humility make room for what the science alone cannot reveal.</p></div>
+<div class="human-questions"><div>What does this mechanism help explain?<span>Begin with what we know</span></div><div>What might this model leave out?<span>Name the uncertainty</span></div><div>What should we ask the person?<span>Keep listening</span></div></div>
+</div>
+</section>
 
-        <div class="pathways" id="pathways">
-          <article class="path-card" data-category="body" style="--accent:#6648aa;--tint:#f0eaff">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">♡</span>
-              <span class="status current">Book in progress</span>
-            </div>
-            <h3>Physiology</h3>
-            <p>How the body works, adapts and keeps its internal conditions within a living range.</p>
-            <div class="path-foot">THE CURRENT STARTING POINT</div>
-          </article>
+<section class="lab-section" id="lab" aria-labelledby="lab-title">
+<div class="wrap lab-card"><div><span class="eyebrow">Digital companion · Chapter one</span><h2 id="lab-title">Step inside the cell membrane.</h2><p>Explore its structures, follow molecules across the bilayer, and check your understanding in the interactive lab.</p></div><a class="button" href="cell-membrane-lab.html">Enter the lab <span aria-hidden="true">↗</span></a></div>
+</section>
 
-          <article class="path-card" data-category="molecules" style="--accent:#b46a35;--tint:#fbefe0">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">◉</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Biochemistry</h3>
-            <p>The molecules, reactions and energy exchanges that make life possible.</p>
-            <div class="path-foot">FROM CHEMISTRY TO LIVING SYSTEMS</div>
-          </article>
-
-          <article class="path-card" data-category="body" style="--accent:#427a70;--tint:#e9f4f0">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">⌁</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Anatomy & histology</h3>
-            <p>How structures are organised—from tissues under a microscope to the whole body.</p>
-            <div class="path-foot">FORM, SCALE & FUNCTION</div>
-          </article>
-
-          <article class="path-card" data-category="molecules" style="--accent:#6771a7;--tint:#edf0fa">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">⌘</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Cell biology & genetics</h3>
-            <p>Cells as active, communicating systems—and how biological instructions are used.</p>
-            <div class="path-foot">THE CELL’S INNER WORKINGS</div>
-          </article>
-
-          <article class="path-card" data-category="defence" style="--accent:#bc6558;--tint:#fff0ec">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">✳</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Immunology</h3>
-            <p>How the body recognises danger, coordinates defence and learns from encounters.</p>
-            <div class="path-foot">DEFENCE, MEMORY & BALANCE</div>
-          </article>
-
-          <article class="path-card" data-category="defence" style="--accent:#4e8b67;--tint:#ebf5ec">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">· ·</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Microbiology</h3>
-            <p>The microbial world: its diversity, its relationships with us and its role in disease.</p>
-            <div class="path-foot">SMALL ORGANISMS, BIG STORIES</div>
-          </article>
-
-          <article class="path-card" data-category="defence" style="--accent:#94714a;--tint:#f5f0e7">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">↗</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Pathology</h3>
-            <p>What changes in disease, why those changes happen and how they shape function.</p>
-            <div class="path-foot">WHEN SYSTEMS CHANGE</div>
-          </article>
-
-          <article class="path-card" data-category="molecules" style="--accent:#496fa1;--tint:#edf3fa">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">＋</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Pharmacology</h3>
-            <p>How medicines interact with the body—and how the body processes medicines.</p>
-            <div class="path-foot">MECHANISM, EFFECT & CONTEXT</div>
-          </article>
-
-          <article class="path-card" data-category="body" style="--accent:#875f99;--tint:#f4edf7">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">⌁</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Neuroscience</h3>
-            <p>How the nervous system senses, signals, responds and shapes experience.</p>
-            <div class="path-foot">SIGNALS THAT BECOME ACTION</div>
-          </article>
-
-          <article class="path-card" data-category="care" style="--accent:#a85f77;--tint:#f8edf1">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">◌</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Clinical thinking</h3>
-            <p>How to gather clues, weigh possibilities and keep the person—not just the problem—in view.</p>
-            <div class="path-foot">FROM KNOWING TO NOTICING</div>
-          </article>
-
-          <article class="path-card" data-category="care" style="--accent:#54818c;--tint:#edf5f5">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">↔</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Communication & care</h3>
-            <p>Listening, explaining, uncertainty and the human work that holds clinical knowledge.</p>
-            <div class="path-foot">SCIENCE MEETS A PERSON</div>
-          </article>
-
-          <article class="path-card" data-category="care" style="--accent:#7f7948;--tint:#f5f3e8">
-            <div class="path-top">
-              <span class="path-icon" aria-hidden="true">◎</span>
-              <span class="status">Series pathway</span>
-            </div>
-            <h3>Evidence & public health</h3>
-            <p>How we interpret evidence and understand health beyond one body or one clinic.</p>
-            <div class="path-foot">PEOPLE, PATTERNS & POPULATIONS</div>
-          </article>
-        </div>
-
-        <p class="roadmap-note">
-          This is a series map, not a promise that every pathway is already a finished
-          book. The physiology edition is being reworked; the other subjects are
-          possibilities for what can grow next.
-        </p>
-      </div>
-    </section>
-
-    <section class="section learning-section" id="approach" aria-labelledby="approach-title">
-      <div class="section-shell">
-        <div class="section-head">
-          <span class="eyebrow">A familiar rhythm, chapter after chapter</span>
-          <h2 id="approach-title">Learn the idea. Then see where it goes.</h2>
-          <p>
-            Each chapter moves from a human reason to care, into the mechanism, and
-            back out toward clinical meaning. The aim is not to make difficult science
-            small. It is to make the next step feel possible.
-          </p>
-        </div>
-
-        <div class="learning-steps">
-          <article class="learning-step">
-            <h3>Arrive with a question</h3>
-            <p>A story, observation or “why does my body do that?” moment gives the topic a reason to matter.</p>
-          </article>
-          <article class="learning-step">
-            <h3>Build the mechanism</h3>
-            <p>Start with the foundations, then follow each step. Clear language and a useful analogy help the details connect.</p>
-          </article>
-          <article class="learning-step">
-            <h3>Meet the clinic</h3>
-            <p>Clinical notes and mini-cases show what the mechanism can help you notice in a person.</p>
-          </article>
-          <article class="learning-step">
-            <h3>Pause, retrieve, reflect</h3>
-            <p>Takeaways, questions and a quick self-check make space to see what you understand—and what to revisit.</p>
-          </article>
-        </div>
-
-        <p class="learning-note">
-          No performance required to belong here. Marks can tell you how one
-          assessment went; they do not measure your worth or your capacity to grow.
-        </p>
-      </div>
-    </section>
-
-    <section class="section demo-section" id="try-it" aria-labelledby="demo-title">
-      <div class="section-shell demo-grid">
-        <div class="demo-intro">
-          <span class="eyebrow">A tiny physiology detour</span>
-          <h2 id="demo-title">Why does your heart speed up before a presentation?</h2>
-          <p>
-            Your body is already responding to a situation it thinks may need extra
-            attention. It is not being dramatic for no reason; it is adjusting its
-            output to meet a demand it has predicted.
-          </p>
-          <p>
-            That simple question opens into the nervous system, hormones, circulation
-            and the body's changing needs. One moment can lead to a whole network of ideas.
-          </p>
-        </div>
-
-        <div class="mechanism" aria-label="A simplified physiology explanation">
-          <div class="mechanism-head">
-            <span class="pulse-icon" aria-hidden="true">♡</span>
-            <div>
-              <small>Follow the signal</small>
-              <strong>A quick mechanism, in three steps</strong>
-            </div>
-          </div>
-
-          <div class="steps-list">
-            <div class="mechanism-step">
-              <span class="num">1</span>
-              <p><strong>The brain notices a challenge.</strong> Anticipating a presentation can activate networks involved in attention and the stress response.</p>
-            </div>
-            <div class="mechanism-step">
-              <span class="num">2</span>
-              <p><strong>Sympathetic activity rises.</strong> Nerve signals and adrenal hormones, including adrenaline, help prepare the body for action.</p>
-            </div>
-            <div class="mechanism-step">
-              <span class="num">3</span>
-              <p><strong>The heart beats faster.</strong> Heart rate and cardiac output can increase, helping deliver blood to tissues that may need it.</p>
-            </div>
-          </div>
-
-          <div class="check-question">
-            <b>Think it through</b>
-            <p>If the heart is beating faster, what might happen to cardiac output if stroke volume stays the same?</p>
-            <button class="reveal-button" type="button" aria-expanded="false" aria-controls="answer">
-              Show a hint + answer
-            </button>
-            <p class="answer" id="answer" hidden>
-              Cardiac output = heart rate × stroke volume. If stroke volume stays
-              constant while heart rate increases, cardiac output increases. Real
-              responses vary with the person and situation.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-.lab-callout {
-  padding: 30px;
-  background: #f8f5ff;
+<section class="closing"><div class="wrap closing-inner"><div><span class="eyebrow">Curiosity is a good beginning</span><h2>Start with one person. Follow the question.</h2><p>There is always more to learn—and more to notice.</p></div><a class="button secondary" href="#journey">Return to the six steps <span aria-hidden="true">↑</span></a></div></section>
+</main>
+<footer><div class="footer-inner"><div class="footer-brand"><img src="assets/before-the-stethoscope-mark.png" alt=""><div><strong>Before the Stethoscope</strong><small>A medical science book series</small></div></div><div class="footer-meta">Science with a human centre.<br>Educational learning resource; not medical advice.</div></div></footer>
+<script>
+(function(){
+const root=document.documentElement,themeButtons=document.querySelectorAll("[data-theme-choice]"),themeKey="bts-theme-mode";
+function applyTheme(mode){
+let actual=mode;
+if(mode==="system"){actual=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}
+root.dataset.theme=actual;
+themeButtons.forEach(function(button){button.setAttribute("aria-pressed",String(button.dataset.themeChoice===mode))});
+try{localStorage.setItem(themeKey,mode)}catch(e){}
 }
-
-
-    <section class="closing" aria-labelledby="closing-title">
-      <div class="closing-inner">
-        <div>
-          <span class="eyebrow">Curiosity is a good first step</span>
-          <h2 id="closing-title">You do not have to know it all before you begin.</h2>
-          <p>Start with one question. Follow it until the body begins to make a little more sense.</p>
-        </div>
-        <a class="button" href="#subjects">
-          Choose a science pathway <span aria-hidden="true">↑</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="images/before-the-stethoscope-mark.png" alt="">
-        <div>
-          <strong>Before the Stethoscope</strong>
-          <small>A learning project by Isha Tiwari</small>
-        </div>
-      </div>
-      <div class="footer-meta">
-        Foundational medicine, with a human centre.<br>
-        Educational overview only; not medical advice.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const filters = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.path-card');
-
-    filters.forEach((button) => {
-      button.addEventListener('click', () => {
-        const value = button.dataset.filter;
-
-        filters.forEach((item) => {
-          item.setAttribute('aria-pressed', String(item === button));
-        });
-
-        cards.forEach((card) => {
-          card.hidden = value !== 'all' && card.dataset.category !== value;
-        });
-      });
-    });
-
-    const revealButton = document.querySelector('.reveal-button');
-    const answer = document.getElementById('answer');
-
-    revealButton.addEventListener('click', () => {
-      const willOpen = answer.hidden;
-      answer.hidden = !willOpen;
-      revealButton.setAttribute('aria-expanded', String(willOpen));
-      revealButton.textContent = willOpen ? 'Hide the answer' : 'Show a hint + answer';
-    });
-
-    const menuButton = document.querySelector('.menu-button');
-    const menu = document.getElementById('nav-links');
-
-    menuButton.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.textContent = open ? 'Close' : 'Menu';
-    });
-
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.textContent = 'Menu';
-      });
-    });
-  </script>
+let saved="system";try{saved=localStorage.getItem(themeKey)||"system"}catch(e){}
+applyTheme(saved);
+themeButtons.forEach(function(button){button.addEventListener("click",function(){applyTheme(button.dataset.themeChoice)})});
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",function(){let mode="system";try{mode=localStorage.getItem(themeKey)||"system"}catch(e){}if(mode==="system")applyTheme(mode)});
+const menuButton=document.querySelector(".menu-toggle"),menu=document.getElementById("nav-links");
+menuButton.addEventListener("click",function(){const open=menu.classList.toggle("open");menuButton.setAttribute("aria-expanded",String(open));menuButton.textContent=open?"Close":"Menu"});
+menu.querySelectorAll("a").forEach(function(link){link.addEventListener("click",function(){menu.classList.remove("open");menuButton.setAttribute("aria-expanded","false");menuButton.textContent="Menu"})});
+const steps=[
+["Begin with a person","A chapter opens with a brief, respectful patient story. The person is never just a diagnosis or a device for introducing a fact.","Notice: What is this person experiencing, and what might matter to them right now?"],
+["Ask the physiology question","A focused question gives the chapter direction. It might ask what the body is regulating, how it is responding, or why a change has occurred.","Ask: What is the body trying to do—and what changed?"],
+["Explain the mechanism","The explanation builds in a clear order, connecting molecular and cellular events to tissues, organs and whole-body effects.","Trace: Which steps connect the first change to what we can observe?"],
+["Connect the systems","Physiology rarely happens in isolation. Related systems, feedback loops and context can change how a process works.","Connect: Which other systems are helping, responding or compensating?"],
+["Return to the person","The mechanism comes back to the patient. We name what it can help explain, what remains uncertain, and what needs to be asked or assessed.","Reflect: What does the science explain—and what can’t we conclude from it alone?"],
+["Check understanding","A prediction, short case, diagram or retrieval prompt lets the learner try the idea, notice gaps and decide what to revisit.","Try: What might happen if one part of the mechanism changed?"]
+];
+document.querySelectorAll(".step-card").forEach(function(button){button.addEventListener("click",function(){
+const index=Number(button.dataset.step),step=steps[index];
+document.querySelectorAll(".step-card").forEach(function(card){card.setAttribute("aria-pressed",String(card===button))});
+document.getElementById("step-mark").textContent=String(index+1).padStart(2,"0");
+document.getElementById("step-detail-title").textContent=step[0];
+document.getElementById("step-detail-text").textContent=step[1];
+document.getElementById("step-prompt").textContent=step[2];
+})});
+const subjects={
+physiology:"How does the body work, adapt and maintain its internal conditions?",
+anatomy:"How are structures arranged, and how does their form support what they do?",
+biochemistry:"How do molecules, enzymes and energy transformations support life?",
+cell:"How do cells maintain boundaries, communicate and respond to change?",
+histology:"How do cells organise into tissues with specialised jobs?",
+genetics:"How is biological information stored, expressed and inherited?",
+microbiology:"How do microorganisms live, interact and affect human health?",
+immunology:"How does the body recognise signals of danger and coordinate a response?",
+pathology:"How do changes in cells and tissues contribute to illness?",
+pharmacology:"How do medicines interact with biological targets, and what shapes their effects?",
+neuroscience:"How does the nervous system sense, process information and coordinate action?",
+clinical:"How can scientific knowledge support careful decisions while keeping the person in view?"
+};
+document.querySelectorAll(".science-card").forEach(function(button){button.addEventListener("click",function(){
+document.querySelectorAll(".science-card").forEach(function(card){card.setAttribute("aria-pressed",String(card===button))});
+const key=button.dataset.subject;document.getElementById("science-detail-title").textContent=button.querySelector("b").textContent;document.getElementById("science-detail-text").textContent=subjects[key];
+})});
+})();
+</script>
 </body>
 </html>
