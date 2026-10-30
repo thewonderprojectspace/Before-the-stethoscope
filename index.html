@@ -42,6 +42,72 @@
       line-height: 1.6;
     }
 
+.lab-callout {
+  padding: 30px;
+  background: #f8f5ff;
+}
+
+.lab-callout-inner {
+  width: min(1100px, 100%);
+  margin: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  background: #fffefa;
+  border: 1px solid #e9e4ef;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(53, 35, 77, .07);
+}
+
+.lab-callout h2 {
+  margin: 9px 0;
+  color: #302a39;
+  font: 500 clamp(1.8rem, 3.5vw, 2.6rem)/1.1 Georgia, "Times New Roman", serif;
+}
+
+.lab-callout p {
+  max-width: 690px;
+  margin: 0;
+  color: #696274;
+}
+
+.lab-callout-label {
+  color: #7957a0;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.lab-callout-button {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: #56347d;
+  color: white;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lab-callout-button:hover {
+  background: #432861;
+}
+
+@media (max-width: 700px) {
+  .lab-callout-inner {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .lab-callout-button {
+    justify-self: start;
+  }
+}
+
+    
     a { color: inherit; }
     button { font: inherit; }
 
@@ -1113,6 +1179,23 @@
       </div>
     </section>
 
+    <section class="lab-callout" aria-labelledby="lab-callout-title">
+  <div class="lab-callout-inner">
+    <div>
+      <span class="lab-callout-label">Digital lab · Chapter one</span>
+      <h2 id="lab-callout-title">Meet the membrane: more than a wall.</h2>
+      <p>
+        Explore the membrane’s parts, animate the movement of different
+        molecules, and try a quick check to see what you understand.
+      </p>
+    </div>
+
+    <a class="lab-callout-button" href="cell-membrane-lab.html">
+      Enter the lab <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
     <section class="section pathway-section" id="subjects" aria-labelledby="subjects-title">
       <div class="section-shell">
         <div class="section-head">
@@ -1356,6 +1439,11 @@
         </div>
       </div>
     </section>
+.lab-callout {
+  padding: 30px;
+  background: #f8f5ff;
+}
+
 
     <section class="closing" aria-labelledby="closing-title">
       <div class="closing-inner">
