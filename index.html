@@ -67,22 +67,3 @@
 </script>
 </body>
 </html>`;
-const cmd = "cat > 'Before-the-Stethoscope-Index.html' <<'HTML'\n" + html + "\nHTML\ncp 'Before-the-Stethoscope-Index.html' 'Before-the-Stethoscope-Bookshelf.html'\npython3 - <<'PY'\nfrom pathlib import Path\nimport re\ns=Path('Before-the-Stethoscope-Index.html').read_text()\nm=re.search(r'<script>(.*?)</script>',s,re.S)\nPath('/tmp/bts-index-script.js').write_text(m.group(1))\nprint(f'{len(s)} characters; {s.count(\"id=\\\\\\\"physiology\\\\\\\"\")} physiology anchor.')\nPY\nnode --check /tmp/bts-index-script.js";
-const r=await tools.exec_command({cmd,max_output_tokens:1000});
-text(r.output);
-const replace=await tools.mcp__codex_apps__library_replace_library_file({library_file_id:"libfile_900cb9b02fe08191aa67bb3d518bdd05",file:"/workspace/scratch/dd3508d76934/upload/Pasted text(7).txt",expected_current_version:2,version_reason:"Expanded the index to cover all medical science series with sub-books, chapter roadmaps and subtle animation"});
-text(replace);
-const create=await tools.mcp__codex_apps__library_create_library_file({file:"/workspace/scratch/dd3508d76934/Before-the-Stethoscope-Index.html",library_artifact_type:"other"});
-text(create);
-const attrs=await tools.exec_command({cmd:"python3 - <<'PY'\nimport os\nos.setxattr('/workspace/scratch/dd3508d76934/upload/Pasted text(7).txt','user.library-file-version',b'3')\nPY"});
-text(attrs.output);
-const structs=replace.structuredContent||{};
-const c=create.structuredContent||{};
-text(JSON.stringify({replaceVersion:structs.current_version_number,createdId:c.library_file_id,createdName:c.file_name}));
-});
-text(r.output);
-text(replace?.content?.[0]?.text);
-text(create?.content?.[0]?.text);
-text(attrs.output);
-text(JSON.stringify({replace:replace?.structuredContent,create:create?.structuredContent}));
-});
