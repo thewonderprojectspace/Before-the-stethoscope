@@ -1,179 +1,1914 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+
+<!DOCTYPE html>
+<html lang="en-AU">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/png" href="images/before-the-stethoscope-transparent.png">
-  <meta name="theme-color" content="#09070d">
-  <meta name="description" content="Before the Stethoscope is a human-centred series exploring the science behind medicine, one person and one question at a time.">
-  <title>Before the Stethoscope — Learn the science. Keep the person.</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="analytics.js"></script>
-  <script defer src="site.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#502078">
+
+    <title>Before the Stethoscope | For the Human Within</title>
+
+    <meta name="description" content="A community initiative bringing science, healthcare, education and humanity together.">
+
+    <link rel="icon" type="image/png"
+          href="images/before-the-stethoscope-transparent.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <script defer src="analytics.js"></script>
+
+    <style>
+
+        /* =========================================
+           BRAND COLOURS
+        ========================================= */
+
+        :root {
+            --purple: #502078;
+            --plum: #79569a;
+            --lavender: #cbb8e0;
+            --lilac: #f0e8f7;
+            --ivory: #fcf9f6;
+            --white: #ffffff;
+            --ink: #34283f;
+            --muted: #706479;
+            --border: #e3d8eb;
+
+            --heading: 'Cormorant Garamond', Georgia, serif;
+            --body: 'DM Sans', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--ivory);
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        summary:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--plum);
+            outline-offset: 5px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 100px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading);
+            color: var(--purple);
+            line-height: 1.1;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            font-weight: 600;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        h3 {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        .eyebrow {
+            display: block;
+            color: var(--plum);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 750px;
+        }
+
+        .centred {
+            text-align: center;
+        }
+
+        .centred p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .soft-section {
+            background: var(--lilac);
+        }
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(252, 249, 246, 0.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding: 18px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-family: var(--heading);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--purple);
+            line-height: 1.1;
+        }
+
+        .brand-name small {
+            display: block;
+            font-family: var(--body);
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 7px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--plum);
+        }
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: var(--purple);
+            color: white;
+            border: 1px solid var(--purple);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .button:hover {
+            background: var(--plum);
+            border-color: var(--plum);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--purple);
+        }
+
+        .button-outline:hover {
+            background: var(--lilac);
+            color: var(--purple);
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            padding: 100px 0;
+            background:
+                radial-gradient(
+                    ellipse at 85% 30%,
+                    #e5d5f2 0%,
+                    transparent 60%
+                ),
+                var(--ivory);
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--plum);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        .hero-symbol {
+            text-align: center;
+            padding: 35px;
+        }
+
+        .hero-symbol img {
+            width: 270px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .hero-symbol blockquote {
+            font-family: var(--heading);
+            color: var(--purple);
+            font-size: 2rem;
+            line-height: 1.3;
+            margin: 25px 0 10px;
+        }
+
+        .hero-symbol p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           SERIES STATISTICS
+        ========================================= */
+
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: var(--heading);
+            font-size: 3rem;
+            color: var(--purple);
+            line-height: 1.2;
+        }
+
+        .stat span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           MISSION AND COMMUNITY CARDS
+        ========================================= */
+
+        .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .information-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .information-card .number {
+            font-family: var(--heading);
+            font-size: 2.8rem;
+            color: var(--plum);
+            margin-bottom: 12px;
+        }
+
+        .information-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .information-card a {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           PHILOSOPHY
+        ========================================= */
+
+        .philosophy {
+            background: #e9ddf2;
+            text-align: center;
+        }
+
+        .philosophy blockquote {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            font-family: var(--heading);
+            font-size: clamp(2.4rem, 5vw, 4.3rem);
+            color: var(--purple);
+            line-height: 1.2;
+        }
+
+        .philosophy p {
+            max-width: 720px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           BOOK LIBRARY
+        ========================================= */
+
+        .bookshelf {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 38px 26px;
+            align-items: start;
+            margin-top: 45px;
+        }
+
+        .edition {
+            min-width: 0;
+        }
+
+        .edition summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .edition summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .book-cover {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 290px;
+            aspect-ratio: 3 / 4;
+            padding: 25px 20px 22px 30px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.22) 0px,
+                    rgba(0, 0, 0, 0.15) 9px,
+                    rgba(255, 255, 255, 0.16) 11px,
+                    transparent 17px
+                ),
+                var(--book-colour);
+
+            border-radius: 3px 9px 9px 3px;
+
+            box-shadow:
+                5px 5px 0 #e4ddd6,
+                8px 8px 0 var(--book-colour),
+                12px 16px 22px rgba(52, 40, 63, 0.15);
+
+            color: white;
+            transition: transform 0.25s;
+        }
+
+        .book-cover:hover {
+            transform: translateY(-7px);
+        }
+
+        .book-series {
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.5;
+        }
+
+        .book-emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
+    height: 120px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    background: #fcf9f6;
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.book-emblem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+      .book-cover {
+    align-items: center;
+    text-align: center;
+    min-height: 340px;
+}
+
+.book-series {
+    text-align: center;
+    width: 100%;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+}
+
+.book-title {
+    text-align: center;
+    font-family: var(--heading);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.book-bottom {
+    width: 100%;
+    text-align: center;
+}
+
+        .book-title {
+            font-family: var(--heading);
+            font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+            font-weight: 600;
+            line-height: 1.05;
+            overflow-wrap: anywhere;
+        }
+
+        .book-bottom {
+            font-size: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.4);
+            padding-top: 12px;
+        }
+
+        .edition:not([open]) .book-bottom::after {
+            content: " +";
+            float: right;
+        }
+
+        .edition[open] .book-bottom::after {
+            content: " −";
+            float: right;
+        }
+
+        .volume-list {
+            padding: 18px 0 0 24px;
+            margin-bottom: 0;
+            font-size: 0.88rem;
+        }
+
+        .volume-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .volume-list small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.72rem;
+        }
+
+        .library-note {
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================
+           FEATURED BOOK
+        ========================================= */
+
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .featured-cover {
+            max-width: 300px;
+            margin: auto;
+            background: var(--purple);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 3px 10px 10px 3px;
+            border-left: 13px solid #391456;
+            box-shadow:
+                8px 8px 0 #e2d9e7,
+                13px 13px 0 #79569a,
+                20px 25px 35px #50207825;
+            aspect-ratio: 3 / 4.3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-cover img {
+            width: 90px;
+            background: var(--ivory);
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        .featured-cover h3 {
+            color: white;
+            font-size: 2.6rem;
+        }
+
+        .featured-cover small {
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           LEARNING PHILOSOPHY
+        ========================================= */
+
+        .learning-path {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        .learning-step {
+            padding: 23px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .learning-step span {
+            display: block;
+            font-family: var(--heading);
+            font-size: 2rem;
+            color: var(--plum);
+        }
+
+        .learning-step strong {
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           EVENTS
+        ========================================= */
+
+        .events-section {
+            background: linear-gradient(
+                135deg,
+                #f0e8f7,
+                #e0d0ed
+            );
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            padding: 45px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-top: 35px;
+        }
+
+        .event-status {
+            display: inline-block;
+            padding: 5px 13px;
+            background: var(--lilac);
+            color: var(--purple);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            background: var(--ivory);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .event-details p {
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        /* =========================================
+           FOUNDER
+        ========================================= */
+
+        .founder-note {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .founder-note blockquote {
+            font-family: var(--heading);
+            font-size: 2rem;
+            color: var(--purple);
+            line-height: 1.4;
+            margin: 30px 0;
+        }
+
+        .signature {
+            font-family: var(--heading);
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--purple);
+        }
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-section {
+            background: var(--lilac);
+            text-align: center;
+        }
+
+        .contact-section p {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #eee5f3;
+            border-top: 1px solid var(--border);
+            padding: 55px 0 25px;
+        }
+
+        .footer-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 75px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p,
+        footer a {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer a:hover {
+            color: var(--purple);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .bookshelf {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .hero-layout {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                position: relative;
+            }
+
+            section {
+                padding: 55px 0;
+                scroll-margin-top: 20px;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .hero-layout,
+            .featured-layout,
+            .event-card,
+            .three-columns,
+            .footer-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-layout {
+                text-align: center;
+            }
+
+            .hero-symbol img {
+                width: 180px;
+            }
+
+            .hero-symbol {
+                padding: 15px;
+            }
+
+            .button-group {
+                justify-content: center;
+            }
+
+            .bookshelf {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 28px 17px;
+            }
+
+            .book-cover {
+                min-height: 230px;
+                padding: 18px 12px 18px 22px;
+            }
+
+            .book-emblem {
+                width: 45px;
+                height: 45px;
+                padding: 6px;
+            }
+
+            .book-series {
+                font-size: 0.55rem;
+            }
+
+            .learning-path {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-card {
+                padding: 25px;
+            }
+
+            .stat strong {
+                font-size: 2.3rem;
+            }
+
+            .stat span {
+                font-size: 0.72rem;
+            }
+
+            .nav-links {
+                gap: 12px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="topline"></div>
 
-<header class="site-header">
-  <nav class="nav" aria-label="Main navigation">
-   <a class="brand" href="index.html" aria-label="Before the Stethoscope home">
-  <img
-    class="brand-logo"
-    src="images/before-the-stethoscope-transparent.png"
-    alt=""
-  >
-  <span class="brand-copy">
-    Before the Stethoscope
-    <small>Learn the science. Keep the person.</small>
-  </span>
-</a>
-    <div class="nav-tools">
-      <a href="explore.html">Explore the series</a>
-      <a href="digital-lab.html">Digital Labs</a>
-      <a href="author.html">From the Author</a>
-      <a href="#contact">Contact</a>
-      <div class="theme-picker" role="group" aria-label="Choose appearance">
-        <button data-theme-choice="system">Auto</button>
-        <button data-theme-choice="light">Light</button>
-        <button data-theme-choice="dark">Dark</button>
-        <button data-theme-choice="magic">Magic ✦</button>
-      </div>
-    </div>
-  </nav>
-</header>
+    <!-- =====================================
+         NAVIGATION
+    ====================================== -->
 
-<main id="main">
-  <section class="hero">
-    <div class="wrap hero-content">
-      <span class="eyebrow">A medical science series, made human</span>
-      <h1>Before the <em>Stethoscope</em></h1>
-      <p class="lead">
-        Before a diagnosis, a treatment or a clinical conversation, there is a person—and a question about what is happening. Follow that question into the science, then bring what you learn back to the person.
-      </p>
-      <div class="actions">
-        <a class="button" href="explore.html">Explore the series <span aria-hidden="true">↗</span></a>
-        <a class="button outline" href="book-one-digital-lab.html">Step into the Digital Lab</a>
-      </div>
-    </div>
-  </section>
+    <header>
 
-  <section class="section">
-    <div class="wrap panel split">
-      <div>
-        <span class="eyebrow">Start with your why</span>
-        <h2>What draws you to medicine?</h2>
-      </div>
-      <div>
-        <p>
-          Maybe it is the body’s hidden logic, the people you hope to care for, or the questions no one has answered yet. Your reason can change as you learn. Let curiosity give you a place to begin.
-        </p>
-        <p class="quote">Learn the science. Keep the person. Let curiosity lead.</p>
-      </div>
-    </div>
-  </section>
+        <nav class="container navigation" aria-label="Main navigation">
 
-  <section class="section">
-    <div class="wrap">
-      <div class="heading">
-        <div>
-          <span class="eyebrow">Thirteen ways in</span>
-          <h2>Choose a starting point.</h2>
+            <a href="index.html" class="brand">
+
+                <img
+                    src="images/before-the-stethoscope-transparent.png"
+                    alt=""
+                >
+
+                <div class="brand-name">
+                    Before the Stethoscope
+                    <small>For the Human Within</small>
+                </div>
+
+            </a>
+
+            <div class="nav-links">
+
+                <a href="#mission">Our Mission</a>
+                <a href="#books">The Library</a>
+                <a href="#events">Events</a>
+                <a href="digital-lab.html">Digital Labs</a>
+                <a href="#community">Community</a>
+                <a href="author.html">Founder</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section class="hero">
+
+            <div class="container hero-layout">
+
+                <div>
+
+                    <span class="eyebrow">
+                        Science · Education · Humanity
+                    </span>
+
+                    <h1>
+                        Before the
+                        <span>Stethoscope.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Understanding the science of life.
+                        Remembering the value of living.
+                    </p>
+
+                    <p>
+                        An educational and community initiative
+                        dedicated to bringing humanity, compassion
+                        and scientific understanding closer together.
+                    </p>
+
+                    <p>
+                        Because healthcare begins not with a
+                        diagnosis, a textbook or a professional
+                        title, but with a human being.
+                    </p>
+
+                    <div class="button-group">
+
+                        <a href="#community" class="button">
+                            Be Part of the Change
+                        </a>
+
+                        <a href="#books" class="button button-outline">
+                            Explore Our Books
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-symbol">
+
+                    <img
+                        src="images/before-the-stethoscope-transparent.png"
+                        alt="Before the Stethoscope original emblem"
+                    >
+
+                    <blockquote>
+                        “The individual comes before the system.”
+                    </blockquote>
+
+                    <p>For the Human Within</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             STATISTICS
+        ====================================== -->
+
+        <div class="container statistics">
+
+            <div class="stat">
+                <strong>12</strong>
+                <span>Planned Academic Editions</span>
+            </div>
+
+            <div class="stat">
+                <strong>60</strong>
+                <span>Planned Educational Books</span>
+            </div>
+
+            <div class="stat">
+                <strong>One</strong>
+                <span>Shared Humanity</span>
+            </div>
+
         </div>
-        <p>Each subject has its own series of focused sub-books. Visit the series explorer for the full collection and book pathways.</p>
-      </div>
 
-      <div class="grid">
-        <a class="card" style="--accent:#c9a8ff" href="explore.html#physiology"><small>01 · BODY SYSTEMS</small><h3>Physiology</h3><p>How the body works, adapts and keeps balance.</p></a>
-        <a class="card" style="--accent:#f3d77b" href="explore.html#biochemistry"><small>02 · MOLECULES</small><h3>Biochemistry</h3><p>The chemistry and energy that make life happen.</p></a>
-        <a class="card" style="--accent:#f1a6bf" href="explore.html#anatomy"><small>03 · STRUCTURE</small><h3>Anatomy</h3><p>The body’s regions, structures and relationships.</p></a>
-        <a class="card" style="--accent:#8fc4ff" href="explore.html#histology"><small>04 · TISSUES</small><h3>Histology</h3><p>How cells and tissues build working organs.</p></a>
-        <a class="card" style="--accent:#aaa3ff" href="explore.html#genetics"><small>05 · INHERITANCE</small><h3>Genetics</h3><p>Genes, variation and the stories carried in DNA.</p></a>
-        <a class="card" style="--accent:#88d7a8" href="explore.html#immunology"><small>06 · DEFENCE</small><h3>Immunology</h3><p>How the body recognises and responds to threats.</p></a>
-        <a class="card" style="--accent:#73d8ce" href="explore.html#microbiology"><small>07 · MICROBES</small><h3>Microbiology</h3><p>The unseen life around us, within us and sometimes against us.</p></a>
-        <a class="card" style="--accent:#ffb36f" href="explore.html#pharmacology"><small>08 · MEDICINES</small><h3>Pharmacology</h3><p>How medicines work and how to use them thoughtfully.</p></a>
-        <a class="card" style="--accent:#ff8d91" href="explore.html#pathology"><small>09 · DISEASE</small><h3>Pathology</h3><p>Understanding illness through changes in cells and tissues.</p></a>
-        <a class="card" style="--accent:#aaa3ff" href="explore.html#neuroscience"><small>10 · NERVOUS SYSTEM</small><h3>Neuroscience</h3><p>The brain, nerves, sensation, behaviour and change.</p></a>
-        <a class="card" style="--accent:#7bd8ed" href="explore.html#clinical-thinking"><small>11 · REASONING</small><h3>Clinical Thinking</h3><p>Turning a person’s story and evidence into careful decisions.</p></a>
-        <a class="card" style="--accent:#ff9fc6" href="explore.html#communication-care"><small>12 · RELATIONSHIPS</small><h3>Communication &amp; Care</h3><p>The human work of listening, explaining and building trust.</p></a>
-        <a class="card" style="--accent:#c4df79" href="explore.html#evidence-public-health"><small>13 · COMMUNITIES</small><h3>Evidence &amp; Public Health</h3><p>Using evidence to understand health beyond the clinic.</p></a>
-      </div>
+        <!-- =====================================
+             OUR MISSION
+        ====================================== -->
 
-      <div class="actions">
-        <a class="button outline" href="explore.html">See every series and book pathway ↗</a>
-      </div>
-    </div>
-  </section>
+        <section id="mission">
 
-  <section class="section">
-    <div class="wrap">
-      <div class="heading">
-        <div>
-          <span class="eyebrow">A connected way to learn</span>
-          <h2>How to use this book.</h2>
+            <div class="container">
+
+                <div class="centred">
+
+                    <span class="eyebrow">Why We Exist</span>
+
+                    <h2>
+                        Humanity belongs at the heart of healthcare.
+                    </h2>
+
+                    <p class="lead">
+                        We believe education should do more than
+                        transfer knowledge. It should help us
+                        understand one another, question existing
+                        systems and create a world in which every
+                        human life is treated with dignity.
+                    </p>
+
+                </div>
+
+                <div class="three-columns">
+
+                    <article class="information-card">
+
+                        <div class="number">01</div>
+
+                        <h3>Health</h3>
+
+                        <p>
+                            Making scientific and healthcare education
+                            approachable, meaningful and grounded
+                            in evidence.
+                        </p>
+
+                    </article>
+
+                    <article class="information-card">
+
+                        <div class="number">02</div>
+
+                        <h3>Wellbeing</h3>
+
+                        <p>
+                            Recognising the emotional, physical
+                            and social experiences of patients,
+                            students, carers and healthcare
+                            professionals.
+                        </p>
+
+                    </article>
+
+                    <article class="information-card">
+
+                        <div class="number">03</div>
+
+                        <h3>The Value of Life</h3>
+
+                        <p>
+                            Encouraging kindness, dignity,
+                            equitable access to care and respect
+                            for every individual, regardless
+                            of their circumstances.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             PHILOSOPHY
+        ====================================== -->
+
+        <section class="philosophy">
+
+            <div class="container">
+
+                <span class="eyebrow">Our Philosophy</span>
+
+                <blockquote>
+                    Before there is a doctor, there is a human.
+                    Before there is medicine, there is someone
+                    who needs care.
+                </blockquote>
+
+                <p>
+                    Science gives us the tools to understand life.
+                    Humanity reminds us why that understanding
+                    matters.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             THE BOOK LIBRARY
+        ====================================== -->
+
+        <section id="books">
+
+            <div class="container">
+
+                <div class="centred">
+
+                    <span class="eyebrow">
+                        The Before the Stethoscope Series
+                    </span>
+
+                    <h2>Many disciplines. One human story.</h2>
+
+                    <p class="lead">
+                        Twelve academic editions exploring the
+                        foundations of medical science, each
+                        containing five planned books.
+                        Select an edition to explore its volumes.
+                    </p>
+
+                </div>
+
+                <div class="bookshelf" id="bookshelf">
+                    <!-- Book editions generated below -->
+                </div>
+
+                <noscript>
+                    <p>
+                        Please enable JavaScript to explore
+                        the interactive book library.
+                    </p>
+                    <a href="explore.html">Visit the series explorer</a>
+                </noscript>
+
+                <p class="library-note">
+                    The collection is currently under development.
+                    Future volume titles and publication schedules
+                    are provisional.
+                </p>
+
+                <a href="explore.html" class="button button-outline">
+                    Explore the Complete Series
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             FEATURED BOOK
+        ====================================== -->
+
+        <section class="soft-section">
+
+            <div class="container featured-layout">
+
+                <div class="featured-cover">
+
+                    <small>Before the Stethoscope</small>
+
+                    <img
+                        src="images/before-the-stethoscope-transparent.png"
+                        alt=""
+                    >
+
+                    <div>
+                        <small>Physiology · Book I</small>
+
+                        <h3>
+                            Cellular Systems and the Human Within
+                        </h3>
+                    </div>
+
+                    <small>Isha Tiwari</small>
+
+                </div>
+
+                <div>
+
+                    <span class="eyebrow">
+                        Where It All Begins
+                    </span>
+
+                    <h2>
+                        The smallest foundations of human life.
+                    </h2>
+
+                    <p class="lead">
+                        Physiology Edition — Book I:
+                        Cellular Systems and the Human Within.
+                    </p>
+
+                    <p>
+                        Explore the cell membrane, organelles,
+                        intracellular membrane systems, blood
+                        and cell division through scientific
+                        explanations, clinical connections
+                        and human stories.
+                    </p>
+
+                    <p>
+                        Designed for learners beginning their
+                        journey into medical science, this book
+                        encourages students to understand not
+                        only the mechanisms of the human body,
+                        but also the person living within it.
+                    </p>
+
+                    <a href="book-one-digital-lab.html" class="button">
+                        Explore the Companion Digital Lab
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             LEARNING APPROACH
+        ====================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="centred">
+
+                    <span class="eyebrow">
+                        A Different Way to Learn
+                    </span>
+
+                    <h2>Learn the science. Keep the person.</h2>
+
+                    <p class="lead">
+                        Connecting scientific understanding
+                        with clinical reasoning, curiosity
+                        and the lived experiences of people.
+                    </p>
+
+                </div>
+
+                <div class="learning-path">
+
+                    <div class="learning-step">
+                        <span>01</span>
+                        <strong>Meet the Person</strong>
+                    </div>
+
+                    <div class="learning-step">
+                        <span>02</span>
+                        <strong>Explore the Science</strong>
+                    </div>
+
+                    <div class="learning-step">
+                        <span>03</span>
+                        <strong>Draw the Mechanism</strong>
+                    </div>
+
+                    <div class="learning-step">
+                        <span>04</span>
+                        <strong>Connect the Systems</strong>
+                    </div>
+
+                    <div class="learning-step">
+                        <span>05</span>
+                        <strong>Return to the Person</strong>
+                    </div>
+
+                    <div class="learning-step">
+                        <span>06</span>
+                        <strong>Reflect and Question</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             EVENTS
+        ====================================== -->
+
+        <section id="events" class="events-section">
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Community Events &amp; Conferences
+                </span>
+
+                <h2>Conversations that matter.</h2>
+
+                <p class="lead">
+                    Bringing together students, healthcare
+                    professionals, educators, researchers
+                    and community members to ask difficult
+                    questions and explore meaningful solutions.
+                </p>
+
+                <article class="event-card">
+
+                    <div>
+
+                        <span class="event-status">
+                            In Development
+                        </span>
+
+                        <h3>
+                            Bridging Medicine and Humanity
+                        </h3>
+
+                        <p>
+                            A community gathering exploring
+                            healthcare trust, patient experiences,
+                            compassionate practice and the
+                            barriers that prevent people from
+                            receiving the care they deserve.
+                        </p>
+
+                        <p>
+                            You do not need to be a medical
+                            professional or an experienced
+                            public speaker to contribute.
+                            Your experiences and ideas matter.
+                        </p>
+
+                        <!-- Replace #contact with your Humanitix URL
+                             when registration becomes available. -->
+
+                        <div class="button-group">
+
+                            <a href="#contact" class="button">
+                                Express Your Interest
+                            </a>
+
+                            <a href="#contact"
+                               class="button button-outline">
+                                Present an Idea
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="event-details">
+
+                        <span class="eyebrow">Event Information</span>
+
+                        <p>
+                            <strong>Location</strong><br>
+                            Melbourne, Australia
+                        </p>
+
+                        <p>
+                            <strong>Date</strong><br>
+                            To be announced
+                        </p>
+
+                        <p>
+                            <strong>Format</strong><br>
+                            Short presentations, community
+                            discussions and collaborative
+                            problem-solving.
+                        </p>
+
+                        <p>
+                            <strong>Who can attend?</strong><br>
+                            Students, professionals, patients,
+                            carers and community members.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             COMMUNITY
+        ====================================== -->
+
+        <section id="community">
+
+            <div class="container">
+
+                <div class="centred">
+
+                    <span class="eyebrow">
+                        A Community for Everyone
+                    </span>
+
+                    <h2>
+                        You do not need a stethoscope to care.
+                    </h2>
+
+                    <p class="lead">
+                        Before the Stethoscope is a space
+                        for people who believe that kindness,
+                        knowledge and meaningful conversations
+                        can contribute to a better society.
+                    </p>
+
+                </div>
+
+                <div class="three-columns">
+
+                    <article class="information-card">
+
+                        <h3>Learn With Us</h3>
+
+                        <p>
+                            For students, educators and curious
+                            minds who want to understand the
+                            science of human life.
+                        </p>
+
+                        <a href="digital-lab.html">
+                            Explore Digital Learning &rarr;
+                        </a>
+
+                    </article>
+
+                    <article class="information-card">
+
+                        <h3>Share Your Perspective</h3>
+
+                        <p>
+                            For patients, carers and community
+                            members who wish to share their
+                            experiences, concerns or ideas
+                            in a respectful environment.
+                        </p>
+
+                        <a href="#contact">
+                            Start a Conversation &rarr;
+                        </a>
+
+                    </article>
+
+                    <article class="information-card">
+
+                        <h3>Build With Us</h3>
+
+                        <p>
+                            For healthcare professionals,
+                            researchers, organisations and
+                            individuals interested in
+                            creating meaningful change.
+                        </p>
+
+                        <a href="#contact">
+                            Explore Collaboration &rarr;
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             FOUNDER'S MESSAGE
+        ====================================== -->
+
+        <section class="soft-section">
+
+            <div class="container founder-note">
+
+                <span class="eyebrow">
+                    A Letter from the Founder
+                </span>
+
+                <h2>For the Human Within.</h2>
+
+                <p>
+                    Before the Stethoscope began with a simple
+                    intention: to make a difference in
+                    healthcare education.
+                </p>
+
+                <p>
+                    What began as a series of books exploring
+                    the human body has grown into a broader
+                    vision — one that brings education,
+                    healthcare and communities together.
+                </p>
+
+                <blockquote>
+                    I hope we can build a world where knowledge
+                    is not a privilege, kindness is not an
+                    exception, and the value of a human life
+                    is never forgotten.
+                </blockquote>
+
+                <div class="signature">
+                    Isha Tiwari
+                </div>
+
+                <p>Founder &amp; Author</p>
+
+                <a href="author.html" class="button button-outline">
+                    Read the Founder's Letter
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             CONTACT
+        ====================================== -->
+
+        <section id="contact" class="contact-section">
+
+            <div class="container">
+
+                <span class="eyebrow">Get Involved</span>
+
+                <h2>Change begins with a conversation.</h2>
+
+                <p class="lead">
+                    Whether you have an idea, a question,
+                    a personal experience or an interest
+                    in collaborating, we would love
+                    to hear from you.
+                </p>
+
+                <!-- Replace this with your official email. -->
+
+                <a
+                    href="mailto:YOUR_EMAIL@example.com"
+                    class="button"
+                >
+                    Get in Touch
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-layout">
+
+                <div class="footer-brand">
+
+                    <img
+                        src="images/before-the-stethoscope-transparent.png"
+                        alt="Before the Stethoscope"
+                    >
+
+                    <h3>Before the Stethoscope</h3>
+
+                    <p>
+                        For the Human Within.
+                    </p>
+
+                    <p>
+                        An educational and community initiative
+                        connecting science, compassion and
+                        the value of human life.
+                    </p>
+
+                    <p>Melbourne, Australia</p>
+
+                </div>
+
+                <div>
+
+                    <h3>Explore</h3>
+
+                    <a href="#mission">Our Mission</a>
+                    <a href="#books">The Library</a>
+                    <a href="digital-lab.html">Digital Labs</a>
+                    <a href="author.html">Our Founder</a>
+
+                </div>
+
+                <div>
+
+                    <h3>Get Involved</h3>
+
+                    <a href="#events">Community Events</a>
+                    <a href="#community">Join the Community</a>
+                    <a href="#contact">Collaborate With Us</a>
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span id="year">2026</span>
+                    Before the Stethoscope.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Educational and community resources.
+                    Not a substitute for individual medical advice.
+                </p>
+
+                <p>
+                    Learn the science. Keep the person.
+                </p>
+
+            </div>
+
         </div>
-      </div>
-      <div class="panel">
-        <p>
-          Each chapter begins with a person and a question about what their body is doing. Follow the mechanism step by step, from molecules and cells to the wider systems they influence. Use the diagrams, cases and questions to test your thinking. Then return to the person: what does the science help explain, and what still needs to be understood?
-        </p>
-        <p class="quote">The science matters. The person at its centre matters more.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="heading">
-        <div>
-          <span class="eyebrow">Keep exploring</span>
-          <h2>Take the next step.</h2>
-        </div>
-      </div>
-      <div class="feature-grid">
-        <article class="feature">
-          <span class="symbol">⌘</span>
-          <h3>Explore the series</h3>
-          <p>Browse all thirteen subjects and see how the collection is organised.</p>
-          <a href="explore.html">Open the series explorer →</a>
-        </article>
-        <article class="feature">
-          <span class="symbol">✦</span>
-          <h3>Enter the Digital Lab</h3>
-          <p>Try short, interactive activities that bring core ideas to life.</p>
-          <a href="digital-lab.html">Open the Digital Lab →</a>
-        </article>
-        <article class="feature">
-          <span class="symbol">✍</span>
-          <h3>From the Author</h3>
-          <p>Read the note behind the series and the way it approaches learning.</p>
-          <a href="author.html">Read the author’s note →</a>
-        </article>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="section" id="contact">
-    <div class="wrap contact">
-      <div>
-        <span class="eyebrow">Contact</span>
-        <h2>Have a question or an idea?</h2>
-        <p>Send a note about what you are learning or what you would like to see in the series.</p>
-      </div>
-      <a href="mailto:YOUR_EMAIL@example.com?subject=Before%20the%20Stethoscope">Send a note ↗</a>
-    </div>
-  </section>
-</main>
+    <!-- =====================================
+         INTERACTIVE BOOK LIBRARY
+    ====================================== -->
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <span><a href="index.html">Before the Stethoscope</a> · Learn the science. Keep the person.</span>
-    <nav aria-label="Footer navigation">
-      <a href="explore.html">Explore</a>
-      <a href="book-one-digital-lab.html">Digital Lab</a>
-      <a href="author.html">From the Author</a>
-    </nav>
-  </div>
-</footer>
+    <script>
+
+        const logoPath =
+            "images/before-the-stethoscope-transparent.png";
+
+        const editions = [
+
+            {
+                title: "Physiology",
+                colour: "#67418c",
+                volumes: [
+                    "Cellular Systems and the Human Within",
+                    "Tissues",
+                    "Organs",
+                    "Organ Systems",
+                    "The Organism"
+                ]
+            },
+
+            {
+                title: "Biochemistry",
+                colour: "#95703e",
+                volumes: [
+                    "Molecules of Life",
+                    "Enzymes and Biochemical Reactions",
+                    "Metabolism",
+                    "Molecular Regulation",
+                    "Biochemistry in Health and Disease"
+                ]
+            },
+
+            {
+                title: "Anatomy",
+                colour: "#9a6275",
+                volumes: [
+                    "Foundations of Human Structure",
+                    "Limbs and Movement",
+                    "Thorax and Abdomen",
+                    "Head and Neck",
+                    "Integrated Human Anatomy"
+                ]
+            },
+
+            {
+                title: "Histology",
+                colour: "#526f91",
+                volumes: [
+                    "Cells Under the Microscope",
+                    "Epithelial and Connective Tissues",
+                    "Muscle and Nervous Tissues",
+                    "Organ Histology",
+                    "Clinical Histology"
+                ]
+            },
+
+            {
+                title: "Genetics",
+                colour: "#82649c",
+                volumes: [
+                    "DNA and Chromosomes",
+                    "Inheritance",
+                    "Gene Expression",
+                    "Genomic Variation",
+                    "Clinical Genetics"
+                ]
+            },
+
+            {
+                title: "Immunology",
+                colour: "#62784f",
+                volumes: [
+                    "Foundations of Immunity",
+                    "Innate Immunity",
+                    "Adaptive Immunity",
+                    "Immune Regulation",
+                    "Immunity in Health and Disease"
+                ]
+            },
+
+            {
+                title: "Microbiology",
+                colour: "#417b78",
+                volumes: [
+                    "Microbial Foundations",
+                    "Bacteria",
+                    "Viruses",
+                    "Fungi and Parasites",
+                    "Microbes and Human Health"
+                ]
+            },
+
+            {
+                title: "Pharmacology",
+                colour: "#a36a4e",
+                volumes: [
+                    "Foundations of Drug Action",
+                    "Pharmacokinetics",
+                    "Medicines and Body Systems",
+                    "Drug Safety and Interactions",
+                    "Clinical Pharmacology"
+                ]
+            },
+
+            {
+                title: "Pathology",
+                colour: "#954d5b",
+                volumes: [
+                    "Cellular Injury",
+                    "Inflammation and Repair",
+                    "Mechanisms of Disease",
+                    "Organ Pathology",
+                    "Integrated Pathology"
+                ]
+            },
+
+            {
+                title: "Neuroscience",
+                colour: "#565581",
+                volumes: [
+                    "Neural Cells",
+                    "Neural Signalling",
+                    "Sensory and Motor Systems",
+                    "Cognition and Behaviour",
+                    "Clinical Neuroscience"
+                ]
+            },
+
+            {
+                title: "Clinical Thinking",
+                colour: "#527684",
+                volumes: [
+                    "Clinical Foundations",
+                    "History and Examination",
+                    "Diagnostic Reasoning",
+                    "Evidence and Uncertainty",
+                    "Clinical Decision-Making"
+                ]
+            },
+
+            {
+                title: "Communication & Care",
+                colour: "#89647d",
+                volumes: [
+                    "Listening and Empathy",
+                    "Patient Conversations",
+                    "Shared Decision-Making",
+                    "Ethics and Human Dignity",
+                    "Care Across Communities"
+                ]
+            }
+
+        ];
+
+        const romanNumerals = [
+            "I", "II", "III", "IV", "V"
+        ];
+
+        const bookshelf = document.getElementById("bookshelf");
+
+        editions.forEach((edition, index) => {
+
+            const details = document.createElement("details");
+
+            details.className = "edition";
+
+            details.style.setProperty(
+                "--book-colour",
+                edition.colour
+            );
+
+            const summary = document.createElement("summary");
+
+            const cover = document.createElement("span");
+
+            cover.className = "book-cover";
+
+            const series = document.createElement("span");
+
+            series.className = "book-series";
+
+            series.textContent =
+                "Before the Stethoscope · Edition " +
+                String(index + 1).padStart(2, "0");
+
+            const emblem = document.createElement("span");
+
+            emblem.className = "book-emblem";
+
+            const logo = document.createElement("img");
+
+            logo.src = logoPath;
+            logo.alt = "";
+            logo.loading = "lazy";
+
+            emblem.appendChild(logo);
+
+            const title = document.createElement("span");
+
+            title.className = "book-title";
+            title.textContent = edition.title;
+
+            const bottom = document.createElement("span");
+
+            bottom.className = "book-bottom";
+            bottom.textContent = "Explore Five Volumes";
+
+            cover.append(series, emblem, title, bottom);
+
+            summary.appendChild(cover);
+
+            const volumes = document.createElement("ol");
+
+            volumes.className = "volume-list";
+            volumes.style.listStyle = "none";
+
+            edition.volumes.forEach((volume, volumeIndex) => {
+
+                const item = document.createElement("li");
+
+                const volumeTitle = document.createElement("strong");
+
+                volumeTitle.textContent =
+                    "Book " +
+                    romanNumerals[volumeIndex] +
+                    " — " +
+                    volume;
+
+                const status = document.createElement("small");
+
+                status.textContent =
+                    index === 0 && volumeIndex === 0
+                        ? "Featured manuscript"
+                        : "Planned volume";
+
+                item.append(volumeTitle, status);
+
+                volumes.appendChild(item);
+
+            });
+
+            details.append(summary, volumes);
+
+            bookshelf.appendChild(details);
+
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
 </body>
+
 </html>
