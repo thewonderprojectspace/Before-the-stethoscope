@@ -1,76 +1,2438 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+
+<!DOCTYPE html>
+<html lang="en-AU">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/png" href="images/before-the-stethoscope-transparent.png">
-  <meta name="description" content="A note from the author of Before the Stethoscope.">
-  <title>From the Author — Before the Stethoscope</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="analytics.js"></script>
-  <script defer src="site.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#502078">
+
+    <meta name="description"
+          content="A heartfelt letter from Isha Tiwari, founder of Before the Stethoscope, on science, education, humanity, kindness and the power of community.">
+
+    <title>
+        A Letter to Humanity | Before the Stethoscope
+    </title>
+
+    <link rel="icon"
+          type="image/png"
+          href="images/before-the-stethoscope-transparent.png">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <script defer src="analytics.js"></script>
+
+    <style>
+
+        /* =========================================
+           BRAND COLOURS AND TYPOGRAPHY
+        ========================================= */
+
+        :root {
+
+            --purple: #502078;
+            --plum: #79569a;
+            --lavender: #cbb8e0;
+            --lilac: #f0e8f7;
+            --ivory: #fcf9f6;
+            --paper: #fffaf2;
+            --ink: #403447;
+            --muted: #706479;
+            --border: #e3d8eb;
+
+            --heading:
+                'Cormorant Garamond', Georgia, serif;
+
+            --body:
+                'DM Sans', Arial, sans-serif;
+
+            --handwriting:
+                'Caveat', Georgia, serif;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+            background: var(--ivory);
+            color: var(--ink);
+            font-family: var(--body);
+            line-height: 1.8;
+
+        }
+
+        a {
+
+            color: var(--purple);
+            text-decoration: none;
+
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+
+            outline: 3px solid var(--plum);
+            outline-offset: 5px;
+
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+
+            width: min(1200px, 90%);
+            margin: auto;
+
+        }
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        header {
+
+            background: var(--ivory);
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        .navigation {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 18px 0;
+
+        }
+
+        .brand {
+
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+        }
+
+        .brand img {
+
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+
+        }
+
+        .brand-name {
+
+            font-family: var(--heading);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--purple);
+            line-height: 1.1;
+
+        }
+
+        .brand-name small {
+
+            display: block;
+            font-family: var(--body);
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 7px;
+
+        }
+
+        .nav-links {
+
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+
+        }
+
+        .nav-links a {
+
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink);
+
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+
+            color: var(--purple);
+
+        }
+
+        .nav-links a[aria-current="page"] {
+
+            border-bottom: 1px solid var(--purple);
+
+        }
+
+        /* =========================================
+           PAGE INTRODUCTION
+        ========================================= */
+
+        .page-intro {
+
+            text-align: center;
+            padding: 75px 20px 45px;
+
+            background:
+                radial-gradient(
+                    ellipse at top,
+                    #e8daf3,
+                    transparent 75%
+                );
+
+        }
+
+        .page-intro img {
+
+            width: 110px;
+            margin-bottom: 20px;
+
+        }
+
+        .eyebrow {
+
+            display: block;
+            font-family: var(--body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--plum);
+            margin-bottom: 20px;
+
+        }
+
+        .page-intro h1 {
+
+            font-family: var(--heading);
+            font-weight: 500;
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            color: var(--purple);
+            line-height: 1.05;
+            margin: 0 0 20px;
+
+        }
+
+        .subtitle {
+
+            font-family: var(--handwriting);
+            font-size: 2.3rem;
+            color: var(--plum);
+            margin: 0 0 15px;
+
+        }
+
+        .welcome {
+
+            max-width: 600px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 1rem;
+
+        }
+
+        /* =========================================
+           LETTER PAPER
+        ========================================= */
+
+        .letter-section {
+
+            padding: 30px 20px 90px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    var(--ivory),
+                    #eee4f4
+                );
+
+        }
+
+        .letter-paper {
+
+            position: relative;
+
+            max-width: 940px;
+            margin: auto;
+            padding: 75px 85px;
+
+            background-color: var(--paper);
+
+            background-image:
+                radial-gradient(
+                    ellipse at top left,
+                    rgba(203, 184, 224, 0.13),
+                    transparent 50%
+                );
+
+            border: 1px solid #e2d6e5;
+            border-radius: 3px;
+
+            box-shadow:
+                0 5px 15px rgba(80, 32, 120, 0.04),
+                0 20px 60px rgba(80, 32, 120, 0.09);
+
+        }
+
+        .letter-paper::before {
+
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid #e5d8e8;
+            pointer-events: none;
+
+        }
+
+        /* =========================================
+           LETTERHEAD
+        ========================================= */
+
+        .letter-heading {
+
+            text-align: center;
+            margin-bottom: 45px;
+
+        }
+
+        .letter-heading img {
+
+            width: 90px;
+            margin-bottom: 10px;
+
+        }
+
+        .letter-heading p {
+
+            font-family: var(--body);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--plum);
+
+        }
+
+        .letter-heading h2 {
+
+            font-family: var(--handwriting);
+            font-size: 3.6rem;
+            font-weight: 500;
+            color: var(--purple);
+            margin: 15px 0;
+            line-height: 1.2;
+
+        }
+
+        .ornament {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px auto;
+            color: var(--plum);
+            font-size: 1.5rem;
+
+        }
+
+        .ornament::before,
+        .ornament::after {
+
+            content: "";
+            width: 70px;
+            height: 1px;
+            background: var(--lavender);
+
+        }
+
+        /* =========================================
+           HANDWRITTEN LETTER
+        ========================================= */
+
+        .letter-content {
+
+            font-family: var(--handwriting);
+            font-size: 1.85rem;
+            font-weight: 500;
+            line-height: 1.65;
+            color: var(--ink);
+
+        }
+
+        .letter-content p {
+
+            margin: 0 0 28px;
+
+        }
+
+        .letter-content strong {
+
+            color: var(--purple);
+            font-weight: 700;
+
+        }
+
+        .salutation {
+
+            font-size: 2.5rem;
+            color: var(--purple);
+
+        }
+
+        .letter-content h3 {
+
+            font-family: var(--handwriting);
+            font-size: 2.7rem;
+            font-weight: 600;
+            color: var(--purple);
+
+            margin: 60px 0 25px;
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid var(--lavender);
+
+            line-height: 1.3;
+
+        }
+
+        .letter-content blockquote {
+
+            font-family: var(--heading);
+            font-size: 2.2rem;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.4;
+
+            color: var(--purple);
+            text-align: center;
+
+            margin: 45px 0;
+            padding: 30px 15px;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        .personal-reflection {
+
+            font-family: var(--handwriting);
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: var(--purple);
+            text-align: center;
+            line-height: 1.5;
+
+            margin: 40px 0 !important;
+
+        }
+
+        .gentle-reminder {
+
+            padding: 25px 30px;
+            margin: 35px 0;
+
+            background: rgba(203, 184, 224, 0.13);
+
+            border-left: 3px solid var(--lavender);
+
+        }
+
+        .gentle-reminder p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+        /* =========================================
+           FOUNDER'S SIGNATURE
+        ========================================= */
+
+        .letter-signoff {
+
+            margin-top: 55px;
+
+        }
+
+        .with-love {
+
+            font-family: var(--handwriting);
+            font-size: 2.1rem;
+            color: var(--ink);
+            margin-bottom: 10px;
+
+        }
+
+        .signature-image {
+
+            display: block;
+
+            width: 350px;
+            max-width: 90%;
+            height: auto;
+
+            mix-blend-mode: multiply;
+
+            margin: 10px 0 15px;
+
+        }
+
+        .founder-name {
+
+            font-family: var(--heading);
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--purple);
+            margin: 0;
+
+        }
+
+        .founder-role {
+
+            font-family: var(--body);
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin: 4px 0;
+
+        }
+
+        .postscript {
+
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            margin-top: 45px;
+
+            font-family: var(--handwriting);
+            font-size: 1.8rem;
+            color: var(--plum);
+
+        }
+
+        .postscript p {
+
+            margin: 0 0 15px;
+
+        }
+
+        /* =========================================
+           ACCESSIBLE READING MODE
+        ========================================= */
+
+        .reading-tools {
+
+            max-width: 940px;
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+
+        }
+
+        .reading-note {
+
+            font-size: 0.8rem;
+            color: var(--muted);
+
+        }
+
+        .reading-button {
+
+            border: 1px solid var(--border);
+            border-radius: 6px;
+
+            background: var(--ivory);
+            color: var(--purple);
+
+            padding: 10px 16px;
+
+            font-family: var(--body);
+            font-size: 0.8rem;
+
+            cursor: pointer;
+
+        }
+
+        .reading-button:hover {
+
+            background: var(--lilac);
+
+        }
+
+        .letter-paper.plain-reading .letter-content {
+
+            font-family: var(--body);
+            font-size: 1.08rem;
+            font-weight: 400;
+            line-height: 1.95;
+
+        }
+
+        .letter-paper.plain-reading .letter-content h3 {
+
+            font-family: var(--heading);
+            font-size: 2rem;
+
+        }
+
+        .letter-paper.plain-reading .personal-reflection {
+
+            font-family: var(--heading);
+            font-size: 1.9rem;
+
+        }
+
+        .letter-paper.plain-reading .salutation,
+        .letter-paper.plain-reading .postscript,
+        .letter-paper.plain-reading .with-love {
+
+            font-family: var(--body);
+            font-size: 1.1rem;
+
+        }
+
+        /* =========================================
+           COMMUNITY INVITATION
+        ========================================= */
+
+        .community-invitation {
+
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--lilac);
+
+        }
+
+        .community-invitation h2 {
+
+            font-family: var(--heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            color: var(--purple);
+            line-height: 1.15;
+
+            margin: 0 0 20px;
+
+        }
+
+        .community-invitation p {
+
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: var(--muted);
+
+        }
+
+        .community-invitation .handwritten {
+
+            font-family: var(--handwriting);
+            font-size: 2.3rem;
+            color: var(--purple);
+
+        }
+
+        .button-group {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+
+        }
+
+        .button {
+
+            display: inline-block;
+            padding: 13px 25px;
+
+            border-radius: 6px;
+            background: var(--purple);
+            color: white;
+
+            border: 1px solid var(--purple);
+
+            font-size: 0.85rem;
+            font-weight: 600;
+
+        }
+
+        .button-outline {
+
+            background: transparent;
+            color: var(--purple);
+
+        }
+
+        .button:hover {
+
+            background: var(--plum);
+            color: white;
+
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            padding: 45px 20px;
+            text-align: center;
+
+            background: var(--ivory);
+
+            border-top: 1px solid var(--border);
+
+        }
+
+        footer img {
+
+            width: 70px;
+
+        }
+
+        footer h3 {
+
+            font-family: var(--heading);
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--purple);
+
+            margin: 10px 0;
+
+        }
+
+        footer p {
+
+            font-size: 0.85rem;
+            color: var(--muted);
+
+        }
+
+        .footer-links {
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            margin: 20px 0;
+            font-size: 0.85rem;
+
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .navigation {
+
+                flex-direction: column;
+
+            }
+
+            .nav-links {
+
+                justify-content: center;
+                gap: 15px;
+
+            }
+
+            .letter-paper {
+
+                padding: 55px 45px;
+
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .page-intro {
+
+                padding: 50px 20px 30px;
+
+            }
+
+            .page-intro img {
+
+                width: 85px;
+
+            }
+
+            .subtitle {
+
+                font-size: 1.9rem;
+
+            }
+
+            .letter-section {
+
+                padding: 20px 12px 50px;
+
+            }
+
+            .letter-paper {
+
+                padding: 40px 25px;
+
+            }
+
+            .letter-paper::before {
+
+                inset: 7px;
+
+            }
+
+            .letter-content {
+
+                font-size: 1.55rem;
+                line-height: 1.6;
+
+            }
+
+            .letter-heading h2 {
+
+                font-size: 2.7rem;
+
+            }
+
+            .letter-content h3 {
+
+                font-size: 2.1rem;
+                margin-top: 40px;
+
+            }
+
+            .letter-content blockquote {
+
+                font-size: 1.65rem;
+                padding: 20px 5px;
+
+            }
+
+            .personal-reflection {
+
+                font-size: 1.85rem;
+
+            }
+
+            .salutation {
+
+                font-size: 2rem;
+
+            }
+
+            .signature-image {
+
+                width: 270px;
+
+            }
+
+            .postscript {
+
+                font-size: 1.5rem;
+
+            }
+
+            .gentle-reminder {
+
+                padding: 18px;
+
+            }
+
+            .community-invitation {
+
+                padding: 55px 20px;
+
+            }
+
+            .reading-tools {
+
+                justify-content: center;
+                text-align: center;
+
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+        }
+
+        /* =========================================
+           PRINTING THE LETTER
+        ========================================= */
+
+        @media print {
+
+            header,
+            .page-intro,
+            .reading-tools,
+            .community-invitation,
+            footer {
+
+                display: none;
+
+            }
+
+            body,
+            .letter-section {
+
+                background: white;
+
+            }
+
+            .letter-section {
+
+                padding: 0;
+
+            }
+
+            .letter-paper {
+
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                padding: 20px;
+
+            }
+
+            .letter-paper::before {
+
+                display: none;
+
+            }
+
+            .letter-content {
+
+                font-family: Georgia, serif;
+                font-size: 12pt;
+                line-height: 1.7;
+
+            }
+
+            .letter-content h3 {
+
+                font-size: 18pt;
+                break-after: avoid;
+
+            }
+
+            .letter-content blockquote {
+
+                font-size: 16pt;
+                break-inside: avoid;
+
+            }
+
+            .letter-signoff {
+
+                break-inside: avoid;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
-<div class="topline"></div>
-<header class="site-header">
-  <nav class="nav" aria-label="Main navigation">
-   <a class="brand" href="index.html" aria-label="Before the Stethoscope home">
-  <img
-    class="brand-logo"
-    src="images/before-the-stethoscope-transparent.png"
-    alt=""
-  >
-  <span class="brand-copy">
-    Before the Stethoscope
-    <small>Learn the science. Keep the person.</small>
-  </span>
-</a>
-    <div class="nav-tools">
-      <a href="explore.html">Explore the series</a>
-      <a href="digital-lab.html">Digital Lab</a>
-      <a href="author.html" aria-current="page">From the Author</a>
-      <a href="index.html#contact">Contact</a>
-      <div class="theme-picker" role="group" aria-label="Choose appearance">
-        <button data-theme-choice="system">Auto</button>
-        <button data-theme-choice="light">Light</button>
-        <button data-theme-choice="dark">Dark</button>
-        <button data-theme-choice="magic">Magic ✦</button>
-      </div>
-    </div>
-  </nav>
-</header>
 
-<main>
-  <section class="page-intro">
-    <div class="wrap">
-      <span class="eyebrow">A note from the author</span>
-      <h1>From the Author.</h1>
-      <p>A little about the intention behind these books and the way I hope they will be used.</p>
-    </div>
-  </section>
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
 
-  <section class="section">
-    <div class="wrap panel" style="max-width:850px">
-      <p>Medicine asks us to learn an extraordinary amount: how cells work, how systems respond, how illness changes the body, and how evidence can guide decisions. It can be easy to let the volume of information become the whole purpose.</p>
-      <p>These books begin with a person because science becomes meaningful when it helps us understand something about a life. Each chapter follows a question through the underlying mechanisms, then returns to the person and asks what the science explains—and what still needs care, curiosity or further understanding.</p>
-      <p>Learning takes time. Some ideas will make sense quickly; others may need another explanation, a new diagram or a pause before they settle. Use the questions to practise your thinking, return to the chapters when you need them, and let understanding grow through steady effort.</p>
-      <p class="quote">I hope these books help you see the science clearly—and remember the person at its centre.</p>
-      <p>Thank you for reading and for bringing your own questions to the work.</p>
-      <p><em>With care,</em><br><strong>Isha Tiwari</strong></p>
-      <a class="button outline" href="index.html">Return to the homepage →</a>
-    </div>
-  </section>
-</main>
+    <header>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <span><a href="index.html">Before the Stethoscope</a> · Learn the science. Keep the person.</span>
-    <nav aria-label="Footer navigation">
-      <a href="explore.html">Explore</a>
-      <a href="digital-lab.html">Digital Lab</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</footer>
+        <nav class="container navigation"
+             aria-label="Main navigation">
+
+            <a href="index.html" class="brand">
+
+                <img
+                    src="images/before-the-stethoscope-transparent.png"
+                    alt=""
+                >
+
+                <div class="brand-name">
+
+                    Before the Stethoscope
+
+                    <small>
+                        For the Human Within
+                    </small>
+
+                </div>
+
+            </a>
+
+            <div class="nav-links">
+
+                <a href="index.html#mission">
+                    Our Mission
+                </a>
+
+                <a href="index.html#books">
+                    The Library
+                </a>
+
+                <a href="index.html#events">
+                    Events
+                </a>
+
+                <a href="digital-lab.html">
+                    Digital Labs
+                </a>
+
+                <a href="index.html#community">
+                    Community
+                </a>
+
+                <a href="author.html"
+                   aria-current="page">
+                    Founder's Letter
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- =====================================
+             PAGE INTRODUCTION
+        ===================================== -->
+
+        <section class="page-intro">
+
+            <img
+                src="images/before-the-stethoscope-transparent.png"
+                alt="Before the Stethoscope original emblem"
+            >
+
+            <span class="eyebrow">
+
+                A Letter from the Founder
+
+            </span>
+
+            <h1>
+
+                A Letter to Humanity.
+
+            </h1>
+
+            <p class="subtitle">
+
+                From one human being to another.
+
+            </p>
+
+            <p class="welcome">
+
+                Wherever you are in life,
+                whatever brought you here,
+                you are welcome to stay for a little while.
+
+                There is no hurry.
+
+            </p>
+
+        </section>
+
+        <!-- =====================================
+             THE LETTER
+        ===================================== -->
+
+        <section class="letter-section">
+
+            <div class="reading-tools">
+
+                <span class="reading-note">
+
+                    Read at your own pace. This letter can wait.
+
+                </span>
+
+                <button
+                    class="reading-button"
+                    id="reading-toggle"
+                    type="button"
+                    aria-pressed="false">
+
+                    Switch to easy-reading text
+
+                </button>
+
+            </div>
+
+            <article class="letter-paper" id="letter">
+
+                <div class="letter-heading">
+
+                    <img
+                        src="images/before-the-stethoscope-transparent.png"
+                        alt=""
+                    >
+
+                    <p>
+
+                        Before the Stethoscope
+
+                    </p>
+
+                    <h2>
+
+                        For the Human Within
+
+                    </h2>
+
+                    <div class="ornament"
+                         aria-hidden="true">
+
+                        &#9825;
+
+                    </div>
+
+                </div>
+
+                <div class="letter-content">
+
+                    <!-- =========================
+                         WELCOME
+                    ========================== -->
+
+                    <p class="salutation">
+
+                        Dear fellow human,
+
+                    </p>
+
+                    <p>
+
+                        Before anything else, I hope you know
+                        that you are welcome here.
+
+                    </p>
+
+                    <p>
+
+                        You do not need a degree, a title,
+                        a particular belief, a certain background
+                        or a perfectly understood life to belong.
+
+                        You do not need to have everything
+                        figured out.
+
+                        In fact, I am still figuring out
+                        quite a lot myself.
+
+                    </p>
+
+                    <p>
+
+                        I do not know what life has asked of you,
+                        what you have lost, what you have overcome,
+                        or what you are quietly carrying today.
+
+                        But I hope that, for these few moments,
+                        you can simply exist without having
+                        to explain yourself.
+
+                    </p>
+
+                    <!-- =========================
+                         THE ORIGIN OF THE BOOKS
+                    ========================== -->
+
+                    <h3>
+
+                        Where it all began
+
+                    </h3>
+
+                    <p>
+
+                        A year and a half ago, I began working
+                        on Before the Stethoscope with a simple
+                        intention: to make a difference in
+                        healthcare education.
+
+                        What started as an attempt to connect
+                        science with humanity through writing
+                        has gradually become something much
+                        more personal.
+
+                    </p>
+
+                    <p>
+
+                        Somewhere between writing about cells,
+                        tissues, illness and the extraordinary
+                        complexity of human life, I found myself
+                        returning to a much simpler question.
+
+                    </p>
+
+                    <blockquote>
+
+                        How can we understand so much about
+                        the human body, yet sometimes struggle
+                        so deeply to understand one another?
+
+                    </blockquote>
+
+                    <p>
+
+                        Medicine asks us to learn an extraordinary
+                        amount: how cells work, how systems respond,
+                        how illness changes the body, and how
+                        evidence can guide decisions.
+
+                        It can be easy to let the volume of
+                        information become the whole purpose.
+
+                    </p>
+
+                    <p>
+
+                        We spend years learning how the heart beats,
+                        how the brain communicates and how the body
+                        responds to injury.
+
+                        Yet understanding the mechanisms of life
+                        does not automatically teach us how to
+                        understand the experience of living.
+
+                    </p>
+
+                    <p>
+
+                        These books begin with a person because
+                        science becomes meaningful when it helps
+                        us understand something about a life.
+
+                        Each chapter follows a question through
+                        the underlying mechanisms, then returns
+                        to the person and asks what the science
+                        explains—and what still needs care,
+                        curiosity or further understanding.
+
+                    </p>
+
+                    <p>
+
+                        A person experiencing breathlessness is
+                        not simply an opportunity to discuss
+                        respiratory physiology.
+
+                        A person living with cancer is not merely
+                        an example of disrupted cell division.
+
+                        They are individuals whose lives,
+                        relationships, hopes and understanding
+                        of the future may have changed.
+
+                    </p>
+
+                    <p>
+
+                        I never want the beauty of scientific
+                        knowledge to overshadow the significance
+                        of the person it is intended to serve.
+
+                    </p>
+
+                    <p>
+
+                        And to those of you who are learning,
+                        please be patient with yourselves.
+
+                    </p>
+
+                    <p>
+
+                        Learning takes time. Some ideas will make
+                        sense quickly; others may need another
+                        explanation, a new diagram or a pause
+                        before they settle.
+
+                        Use the questions to practise your thinking,
+                        return to the chapters when you need them,
+                        and let understanding grow through
+                        steady effort.
+
+                    </p>
+
+                    <div class="gentle-reminder">
+
+                        <p>
+
+                            You are allowed to be confused.
+
+                        </p>
+
+                        <p>
+
+                            You are allowed to ask the same
+                            question twice.
+
+                        </p>
+
+                        <p>
+
+                            You are allowed to take longer than
+                            the person sitting beside you.
+
+                        </p>
+
+                        <p>
+
+                            Education should never make you feel
+                            that your worth depends on how quickly
+                            you understand something.
+
+                        </p>
+
+                    </div>
+
+                    <blockquote>
+
+                        I hope these books help you see the
+                        science clearly—and remember the
+                        person at its centre.
+
+                    </blockquote>
+
+                    <p>
+
+                        Thank you for reading and for bringing
+                        your own questions to the work.
+
+                        I hope these books become something
+                        you can return to with curiosity rather
+                        than fear, and with a genuine desire
+                        to understand rather than simply remember.
+
+                    </p>
+
+                    <!-- =========================
+                         SHARED HUMANITY
+                    ========================== -->
+
+                    <h3>
+
+                        The beautiful contradiction of being human
+
+                    </h3>
+
+                    <p>
+
+                        For a long time, I have questioned
+                        the world we live in.
+
+                    </p>
+
+                    <p>
+
+                        Why should the quality of healthcare
+                        someone receives depend on where they
+                        were born?
+
+                        Why should access to education, safety,
+                        nourishment and dignity be so different
+                        from one person to another?
+
+                        Why have we made something as fundamental
+                        as caring for one another so complicated?
+
+                    </p>
+
+                    <p>
+
+                        We have drawn borders across the earth,
+                        and somewhere along the way, we have
+                        also drawn borders between ourselves.
+
+                    </p>
+
+                    <p>
+
+                        We have divided ourselves through
+                        nationality, language, religion, wealth,
+                        profession, social position and countless
+                        other identities.
+
+                        These identities can be meaningful
+                        and beautiful, but they should never
+                        become reasons to forget our
+                        shared humanity.
+
+                    </p>
+
+                    <p>
+
+                        And here is something I find rather
+                        funny, in the most beautiful sense
+                        of the word.
+
+                    </p>
+
+                    <p>
+
+                        Despite everything that supposedly
+                        makes us different, we all possess
+                        this extraordinary capacity to feel.
+
+                    </p>
+
+                    <p>
+
+                        We experience love, fear, grief, hope,
+                        loneliness, excitement and the desire
+                        to belong.
+
+                        A mother worrying about her child on
+                        one side of the world is not so
+                        fundamentally different from a mother
+                        worrying about her child on the other.
+
+                        The comfort of being understood does
+                        not belong to a particular nationality.
+
+                        The pain of losing someone does not
+                        recognise a border.
+
+                    </p>
+
+                    <p>
+
+                        Our experiences may be different.
+
+                        The intensity of our emotions may differ,
+                        and the ways in which we express them
+                        may vary enormously.
+
+                    </p>
+
+                    <p>
+
+                        But there is something deeply familiar
+                        in our capacity to feel.
+
+                    </p>
+
+                    <p>
+
+                        Perhaps the reason we perceive the world
+                        so differently is that life has introduced
+                        itself to each of us in a different way.
+
+                    </p>
+
+                    <p>
+
+                        Some of us have been taught to trust.
+
+                        Others have learned to protect themselves.
+
+                        Some have experienced kindness when they
+                        needed it most, while others have experienced
+                        disappointment from the very people or
+                        institutions they believed would protect them.
+
+                    </p>
+
+                    <p>
+
+                        Our experiences shape our perspectives,
+                        our beliefs, our fears and sometimes
+                        even the walls we build around ourselves.
+
+                    </p>
+
+                    <p>
+
+                        I wonder how differently we might treat
+                        one another if, before judging someone's
+                        behaviour, we became a little more curious
+                        about the experiences that shaped it.
+
+                    </p>
+
+                    <p>
+
+                        Understanding does not mean excusing harm.
+
+                        Kindness does not mean abandoning boundaries.
+
+                        Compassion does not require us to agree
+                        with everything another person believes.
+
+                    </p>
+
+                    <p>
+
+                        But it does invite us to recognise
+                        that there is a human being on the
+                        other side of our disagreement.
+
+                    </p>
+
+                    <blockquote>
+
+                        Perhaps we are not as different
+                        as the world has taught us to believe.
+
+                    </blockquote>
+
+                    <!-- =========================
+                         STANDING UP FOR CHANGE
+                    ========================== -->
+
+                    <h3>
+
+                        I do not want to simply watch anymore
+
+                    </h3>
+
+                    <p>
+
+                        There have been many occasions when
+                        I have found myself frustrated with
+                        the way society functions.
+
+                    </p>
+
+                    <p>
+
+                        I have questioned why preventable
+                        suffering continues to exist, why
+                        people feel unheard, why healthcare
+                        can become inaccessible, and why
+                        kindness sometimes feels like an
+                        extraordinary act rather than an
+                        ordinary part of being human.
+
+                    </p>
+
+                    <p>
+
+                        But I have also had to ask myself
+                        an uncomfortable question.
+
+                    </p>
+
+                    <p class="personal-reflection">
+
+                        What am I doing about it?
+
+                    </p>
+
+                    <p>
+
+                        I do not want to spend my life sitting
+                        comfortably in the shade, discussing
+                        everything that is wrong with the world,
+                        while waiting for someone else to stand
+                        in the sunlight and do something about it.
+
+                    </p>
+
+                    <p class="personal-reflection">
+
+                        I want to stand up.
+
+                    </p>
+
+                    <p>
+
+                        Not because I have all the answers.
+
+                        I certainly do not.
+
+                    </p>
+
+                    <p>
+
+                        Not because I believe I am capable
+                        of changing the world on my own.
+
+                        No individual can, and perhaps that
+                        is precisely the point.
+
+                    </p>
+
+                    <p>
+
+                        I want to stand up because I believe
+                        that we have a choice in how we
+                        participate in the world around us.
+
+                    </p>
+
+                    <p>
+
+                        We do not have to reproduce the
+                        indifference we have experienced.
+
+                        We do not have to continue treating
+                        unfairness as inevitable simply
+                        because it has existed for generations.
+
+                        We do not have to accept that the way
+                        things have always been done is the
+                        only way they can ever be done.
+
+                    </p>
+
+                    <p>
+
+                        We can question.
+
+                        We can learn.
+
+                        We can organise.
+
+                        We can cooperate.
+
+                        We can build alternatives and work
+                        towards better systems.
+
+                    </p>
+
+                    <p>
+
+                        We can choose not to participate
+                        in harmful patterns in the same
+                        way again.
+
+                    </p>
+
+                    <p>
+
+                        I believe that systems are created
+                        by people, sustained by people and,
+                        ultimately, capable of being changed
+                        by people.
+
+                    </p>
+
+                    <p>
+
+                        Authority may be held by individuals
+                        and institutions, but the capacity
+                        for collective change belongs
+                        to communities.
+
+                    </p>
+
+                    <p>
+
+                        It belongs to the teacher who refuses
+                        to give up on a struggling student.
+
+                        To the nurse who takes an extra moment
+                        to listen.
+
+                        To the researcher who continues
+                        asking difficult questions.
+
+                        To the neighbour who notices when
+                        someone needs help.
+
+                        To the ordinary person who chooses
+                        to act with kindness when it would
+                        have been easier to look away.
+
+                    </p>
+
+                    <p>
+
+                        These people may never appear in
+                        history books.
+
+                        Their names may never be celebrated.
+
+                        Yet their actions quietly hold
+                        our society together.
+
+                    </p>
+
+                    <blockquote>
+
+                        The power to build a more humane
+                        world lives within its people.
+
+                    </blockquote>
+
+                    <p>
+
+                        And I want Before the Stethoscope
+                        to be one small place where we begin
+                        to rediscover that power together.
+
+                    </p>
+
+                    <!-- =========================
+                         THE COMMUNITY
+                    ========================== -->
+
+                    <h3>
+
+                        A community, not a hierarchy
+
+                    </h3>
+
+                    <p>
+
+                        Before the Stethoscope is not intended
+                        to become a community in which everyone
+                        thinks the same way.
+
+                    </p>
+
+                    <p>
+
+                        Quite the opposite.
+
+                    </p>
+
+                    <p>
+
+                        I want to create a space where a
+                        medical student can learn from a patient,
+                        where a professor can learn from a
+                        school student, where a healthcare
+                        professional can speak honestly about
+                        their challenges, and where someone
+                        without any formal education in medicine
+                        can contribute something profoundly
+                        meaningful.
+
+                    </p>
+
+                    <p>
+
+                        Knowledge does not exist exclusively
+                        within universities, textbooks
+                        or professional institutions.
+
+                    </p>
+
+                    <p>
+
+                        There is knowledge in lived experience.
+
+                        There is knowledge in caring for
+                        someone who is unwell.
+
+                        There is knowledge in navigating
+                        systems that were not designed with
+                        your circumstances in mind.
+
+                        There is knowledge in listening,
+                        observing, questioning and simply living.
+
+                    </p>
+
+                    <p>
+
+                        Through educational books, community
+                        gatherings, conferences, discussions
+                        and collaborative projects, I hope
+                        we can bring these different forms
+                        of knowledge together.
+
+                    </p>
+
+                    <p>
+
+                        I want us to move beyond identifying
+                        problems and begin exploring solutions,
+                        however small those solutions may
+                        initially seem.
+
+                    </p>
+
+                    <p>
+
+                        I want us to create an environment
+                        where people can ask difficult questions
+                        without humiliation, disagree without
+                        cruelty and share their experiences
+                        without feeling pressured to reveal
+                        more than they are comfortable sharing.
+
+                    </p>
+
+                    <p>
+
+                        I want this to be a community where
+                        listening is valued just as much
+                        as speaking.
+
+                    </p>
+
+                    <p>
+
+                        Where a person does not need to
+                        earn the right to be heard.
+
+                    </p>
+
+                    <p>
+
+                        Where kindness is not confused
+                        with weakness.
+
+                    </p>
+
+                    <p>
+
+                        And where no individual is considered
+                        more worthy of dignity simply because
+                        of the position they occupy.
+
+                    </p>
+
+                    <p>
+
+                        You do not have to agree with everything
+                        I believe to belong here.
+
+                        I hope you will challenge my ideas,
+                        offer different perspectives and
+                        help me recognise things I may
+                        not yet understand.
+
+                    </p>
+
+                    <p class="personal-reflection">
+
+                        I am learning too.
+
+                    </p>
+
+                    <!-- =========================
+                         THE HUMAN WITHIN
+                    ========================== -->
+
+                    <h3>
+
+                        For the human within
+
+                    </h3>
+
+                    <p>
+
+                        This philosophy extends beyond patients
+                        and healthcare professionals.
+
+                        It extends to every one of us.
+
+                    </p>
+
+                    <p>
+
+                        Behind every diagnosis is a person.
+
+                        Behind every profession is a person.
+
+                        Behind every mistake, achievement,
+                        disagreement, fear and ambition
+                        is a person.
+
+                    </p>
+
+                    <p>
+
+                        Sometimes, we become so occupied
+                        with the roles we play that we forget
+                        who we were before the world began
+                        placing expectations upon us.
+
+                    </p>
+
+                    <p>
+
+                        Before we became students, teachers,
+                        doctors, nurses, researchers, leaders
+                        or workers, we were human beings.
+
+                    </p>
+
+                    <p>
+
+                        And that is what we will always remain.
+
+                    </p>
+
+                    <p>
+
+                        I cannot promise that Before the
+                        Stethoscope will solve every problem.
+
+                        I cannot promise that we will always
+                        agree, that our efforts will always
+                        succeed, or that the journey will
+                        be easy.
+
+                    </p>
+
+                    <p>
+
+                        But I can commit to approaching
+                        this work with care.
+
+                        To remaining open to learning.
+
+                        To acknowledging mistakes.
+
+                        To listening when someone tells me
+                        that something could be done better.
+
+                    </p>
+
+                    <p>
+
+                        And, most importantly, to remembering
+                        why this began.
+
+                    </p>
+
+                    <blockquote>
+
+                        The individual comes before the system.
+
+                    </blockquote>
+
+                    <p>
+
+                        I want to live in a world where
+                        knowledge is shared rather than guarded,
+                        where healthcare is guided by human
+                        dignity, where communities support
+                        one another, and where a person's
+                        circumstances do not determine
+                        the value of their life.
+
+                    </p>
+
+                    <p>
+
+                        Perhaps we cannot build that world
+                        overnight.
+
+                    </p>
+
+                    <p>
+
+                        But surely, we can begin.
+
+                    </p>
+
+                    <p class="personal-reflection">
+
+                        A conversation at a time.<br>
+
+                        A classroom at a time.<br>
+
+                        A community at a time.<br>
+
+                        A human being at a time.
+
+                    </p>
+
+                    <!-- =========================
+                         OPEN INVITATION
+                    ========================== -->
+
+                    <h3>
+
+                        An invitation, without expectations
+
+                    </h3>
+
+                    <p>
+
+                        If you have found your way here
+                        because you are curious about science,
+                        welcome.
+
+                    </p>
+
+                    <p>
+
+                        If you are here because you have
+                        experienced something that made you
+                        question healthcare or society,
+                        welcome.
+
+                    </p>
+
+                    <p>
+
+                        If you are here because you want
+                        to contribute, learn, teach, research,
+                        share an idea or help build something
+                        meaningful, welcome.
+
+                    </p>
+
+                    <p>
+
+                        And if you are simply here because
+                        you needed to read something kind
+                        today, you are equally welcome.
+
+                    </p>
+
+                    <div class="gentle-reminder">
+
+                        <p>
+
+                            You do not owe this community
+                            your productivity, your personal
+                            story or your participation.
+
+                        </p>
+
+                        <p>
+
+                            Your worth is not determined
+                            by how useful you are to other people.
+
+                        </p>
+
+                        <p>
+
+                            You are allowed to listen.
+
+                            You are allowed to observe.
+
+                            You are allowed to take your time.
+
+                        </p>
+
+                    </div>
+
+                    <p>
+
+                        I hope that Before the Stethoscope
+                        becomes a place where we can remind
+                        one another of something that should
+                        never have needed reminding.
+
+                    </p>
+
+                    <p>
+
+                        That beneath our different experiences,
+                        identities, beliefs and circumstances,
+                        we belong to the same humanity.
+
+                    </p>
+
+                    <p>
+
+                        We do not have to think alike
+                        to care for one another.
+
+                    </p>
+
+                    <p>
+
+                        We do not have to live the same
+                        lives to recognise each other's
+                        suffering.
+
+                    </p>
+
+                    <p class="personal-reflection">
+
+                        And we certainly do not need
+                        a stethoscope to care.
+
+                    </p>
+
+                    <p>
+
+                        Thank you for being here.
+
+                        Thank you for taking the time
+                        to read these words.
+
+                        And thank you for every little act
+                        of kindness you have brought into
+                        the world, especially those that
+                        nobody was there to notice.
+
+                    </p>
+
+                    <p>
+
+                        I hope our paths cross someday.
+
+                    </p>
+
+                    <p>
+
+                        Until then, please take care of
+                        yourself, and whenever you can,
+                        take care of one another.
+
+                    </p>
+
+                </div>
+
+                <!-- =============================
+                     ORIGINAL HANDWRITTEN SIGNATURE
+                ============================== -->
+
+                <div class="letter-signoff">
+
+                    <p class="with-love">
+
+                        With love, hope and care,
+
+                    </p>
+
+                    <img
+                        class="signature-image"
+                        src="images/Isha Tiwari handwritten signature.png"
+                        alt="Handwritten signature of Isha Tiwari"
+                    >
+
+                    <p class="founder-name">
+
+                        Isha Tiwari
+
+                    </p>
+
+                    <p class="founder-role">
+
+                        Founder &amp; Author
+
+                    </p>
+
+                    <p class="founder-role">
+
+                        Before the Stethoscope
+
+                    </p>
+
+                    <p class="founder-role">
+
+                        For the Human Within
+
+                    </p>
+
+                    <p class="founder-role">
+
+                        Melbourne, Australia
+
+                    </p>
+
+                </div>
+
+                <!-- =============================
+                     A FINAL PERSONAL REMINDER
+                ============================== -->
+
+                <div class="postscript">
+
+                    <p>
+
+                        <strong>P.S.</strong>
+
+                        If nobody has reminded you today,
+                        you are a human being before
+                        you are anything else.
+
+                    </p>
+
+                    <p>
+
+                        Before your profession.
+
+                        Before your achievements.
+
+                        Before your mistakes.
+
+                        Before your responsibilities.
+
+                        Before the expectations that others
+                        have placed upon you.
+
+                    </p>
+
+                    <p>
+
+                        You do not need to accomplish
+                        something extraordinary to deserve
+                        an ordinary amount of love,
+                        dignity and care.
+
+                    </p>
+
+                    <p>
+
+                        Please remember that. &#9825;
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- =====================================
+             COMMUNITY INVITATION
+        ===================================== -->
+
+        <section class="community-invitation">
+
+            <span class="eyebrow">
+
+                An Open Invitation
+
+            </span>
+
+            <h2>
+
+                There is a place for you here.
+
+            </h2>
+
+            <p>
+
+                Before the Stethoscope is not a community
+                built around one person's ideas.
+
+                It is an invitation to bring our different
+                experiences, knowledge and perspectives
+                together, and explore what we can create
+                through collective care.
+
+            </p>
+
+            <p>
+
+                You are welcome to learn, question,
+                share, collaborate or simply listen.
+
+                Participation is always your choice.
+
+            </p>
+
+            <p class="handwritten">
+
+                We do not have to think alike
+                to care for one another.
+
+            </p>
+
+            <div class="button-group">
+
+                <a href="index.html#community"
+                   class="button">
+
+                    Be Part of Our Community
+
+                </a>
+
+                <a href="index.html#events"
+                   class="button button-outline">
+
+                    Explore Our Events
+
+                </a>
+
+                <a href="index.html#books"
+                   class="button button-outline">
+
+                    Explore Our Books
+
+                </a>
+
+                <a href="index.html#contact"
+                   class="button button-outline">
+
+                    Start a Conversation
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <img
+            src="images/before-the-stethoscope-transparent.png"
+            alt="Before the Stethoscope"
+        >
+
+        <h3>
+
+            Before the Stethoscope
+
+        </h3>
+
+        <p>
+
+            For the Human Within.
+
+        </p>
+
+        <p>
+
+            Learn the science. Keep the person.
+
+        </p>
+
+        <nav class="footer-links"
+             aria-label="Footer navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#books">
+                The Library
+            </a>
+
+            <a href="digital-lab.html">
+                Digital Labs
+            </a>
+
+            <a href="index.html#events">
+                Events
+            </a>
+
+            <a href="index.html#community">
+                Community
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+        <p>
+
+            &copy; <span id="year">2026</span>
+            Before the Stethoscope.
+
+            All rights reserved.
+
+        </p>
+
+        <p>
+
+            Built with curiosity, kindness and care.
+
+        </p>
+
+    </footer>
+
+    <!-- =========================================
+         READING ACCESSIBILITY
+    ========================================= -->
+
+    <script>
+
+        const readingToggle =
+            document.getElementById("reading-toggle");
+
+        const letter =
+            document.getElementById("letter");
+
+        readingToggle.addEventListener("click", () => {
+
+            const plainReading =
+                letter.classList.toggle("plain-reading");
+
+            readingToggle.setAttribute(
+                "aria-pressed",
+                String(plainReading)
+            );
+
+            readingToggle.textContent = plainReading
+
+                ? "Return to handwritten letter"
+
+                : "Switch to easy-reading text";
+
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
 </body>
+
 </html>
